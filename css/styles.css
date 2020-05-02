@@ -106,7 +106,7 @@ h2{
   background-color: #f2f2f2;
 }
 
-h2{
+.page-section h2{
   text-align: center;
   font-family: inherit;
   font-weight: 900;
@@ -228,7 +228,7 @@ h3{
 }
 
 .action-item {
-  color: #dbdbdb;
+  color: #dbdbdb !important;
   padding: 30px;
   border-bottom: 1px solid #dbdbdb;
   white-space: nowrap;
@@ -236,6 +236,14 @@ h3{
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+}
+
+.action-item a:visited {
+  color: #dbdbdb;
+}
+
+.action-item a {
+  color: #dbdbdb;
 }
 
 .action-item:hover {
@@ -249,4 +257,129 @@ h3{
 
 .action-item i {
   margin-right: 10px;
+}
+
+.vertical-line {
+  border: 1px solid #ccc;
+  height: 100%;
+}
+
+.container-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.container-pick-date {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: black;
+  padding:20px;
+}
+
+.container-pick-time {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+.calendar-bar {
+  background-color: #239888;
+  color: #dbdbdb;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.calendar-bar-button {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.calendar-box {
+  display: grid;
+  grid-template-rows: 2fr 3fr 3fr 3fr 3fr 3fr 3fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.weekday-box {
+  padding:5px;
+  background-color: #ddd;
+  text-align:center;
+}
+
+.date-box {
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selected-date {
+  border-radius: 50%; 
+  background-color:#239888;
+  padding: 8px;
+  color: #dbdbdb;
+}
+
+.past-date {
+  color: #dbdbdb;
+}
+
+.unselected-date:hover {
+  border-radius: 50%;
+  background-color: #dbdbdb;
+  padding:8px;
+  cursor: pointer;
+}
+
+.container-times {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.service-labels-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-label {
+  flex: 1;
+  padding: 10px;
+  background-color: #239888;
+  color: #dbdbdb;
+}
+
+.service-times-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-timebox {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.available-time {
+  background-color: #90ef90;
+  padding: 10px;
+}
+
+.unavailable-time {
+  padding: 10px;
+  background-color: #FF9478;
+}
+
+.selected-time {
+  background-color: #007000;
+  padding: 10px;
+  color: #dbdbdb;
 }

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Pet Shop</title>
+        <link href="css/styles.css" rel="stylesheet" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Icon -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <nav class="nav-bar">
+            <div class="container">
+                <a class="navbar-brand" href="client.html">PET SHOP</a>
+                <div class="nav-menu">
+                    <ul>
+                        <li class="nav-li"><a class="nav-li-a" href="index.html">LOGOUT</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container flex-row">
+            <div class="action-bar">
+                <div class="action-item action-item-selected">
+                    <i class="fa fa-calendar"></i>
+                    <a href="#"><p>Agendar serviço</p></a>
+                </div>
+                <div class="action-item">
+                    <i class="fa fa-shopping-cart"></i>
+                    <p>Comprar produtos</p>
+                </div>
+                <div class="action-item">
+                    <i class="fa fa-paw"></i>
+                    <p>Meus pets</p>
+                </div>
+                <div class="action-item">
+                    <i class="fa fa-user"></i>
+                    <p>Minha conta</p>
+                </div>
+            </div>
+            <div class="container container-content">
+                <div class="container-pick-date">
+                    <h2>Selecione uma data:</h2>
+                    <div class="calendar">
+                        <div class="calendar-bar">
+                            <div class="calendar-bar-button"> < </div>
+                            <span>Maio de 2019</span>
+                            <div class="calendar-bar-button"> > </div>
+                        </div>
+                        <div class="calendar-box">
+                            <div class="weekday-box">Dom</div>
+                            <div class="weekday-box">Seg</div>
+                            <div class="weekday-box">Ter</div>
+                            <div class="weekday-box">Qua</div>
+                            <div class="weekday-box">Qui</div>
+                            <div class="weekday-box">Sex</div>
+                            <div class="weekday-box">Sáb</div>
+                            <div class="date-box"></div>
+                            <div class="date-box"></div>
+                            <div class="date-box"></div>
+                            <div class="date-box"></div>
+                            <div class="date-box"></div>
+                            <div class="date-box past-date">1</div>
+                            <div class="date-box"><div class="selected-date">2</div></div>
+                            <div class="date-box"><div class="unselected-date">3</div></div>
+                            <div class="date-box"><div class="unselected-date">4</div></div>
+                            <div class="date-box"><div class="unselected-date">5</div></div>
+                            <div class="date-box"><div class="unselected-date">6</div></div>
+                            <div class="date-box"><div class="unselected-date">7</div></div>
+                            <div class="date-box"><div class="unselected-date">8</div></div>
+                            <div class="date-box"><div class="unselected-date">9</div></div>
+                            <div class="date-box"><div class="unselected-date">10</div></div>
+                            <div class="date-box"><div class="unselected-date">11</div></div>
+                            <div class="date-box"><div class="unselected-date">12</div></div>
+                            <div class="date-box"><div class="unselected-date">13</div></div>
+                            <div class="date-box"><div class="unselected-date">14</div></div>
+                            <div class="date-box"><div class="unselected-date">15</div></div>
+                            <div class="date-box"><div class="unselected-date">16</div></div>
+                            <div class="date-box"><div class="unselected-date">17</div></div>
+                            <div class="date-box"><div class="unselected-date">18</div></div>
+                            <div class="date-box"><div class="unselected-date">19</div></div>
+                            <div class="date-box"><div class="unselected-date">20</div></div>
+                            <div class="date-box"><div class="unselected-date">21</div></div>
+                            <div class="date-box"><div class="unselected-date">22</div></div>
+                            <div class="date-box"><div class="unselected-date">22</div></div>
+                            <div class="date-box"><div class="unselected-date">23</div></div>
+                            <div class="date-box"><div class="unselected-date">24</div></div>
+                            <div class="date-box"><div class="unselected-date">25</div></div>
+                            <div class="date-box"><div class="unselected-date">26</div></div>
+                            <div class="date-box"><div class="unselected-date">27</div></div>
+                            <div class="date-box"><div class="unselected-date">28</div></div>
+                            <div class="date-box"><div class="unselected-date">29</div></div>
+                            <div class="date-box"><div class="unselected-date">30</div></div>
+                            <div class="date-box"></div>
+                            <div class="date-box"></div>
+                            <div class="date-box"></div>
+                            <div class="date-box"></div>
+                            <div class="date-box"></div>
+                            <div class="date-box"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="vertical-line">
+                </div>
+                <div class="container-pick-time">
+                    <h2>Horários disponíveis: </h2>
+                    <div class="container-times">
+                        <div class="service-labels-container">
+                            <div class="service-label">
+                                Vacinação
+                            </div>
+                            <div class="service-label">
+                                Banho & Tosa
+                            </div>
+                        </div>
+                        <div class="service-times-container">
+                            <div class="service-timebox">
+                                <div class="unavailable-time">8:00</div>
+                                <div class="available-time">9:00</div>
+                                <div class="available-time">10:00</div>
+                                <div class="available-time">11:00</div>
+                                <div class="unavailable-time">12:00</div>
+                                <div class="unavailable-time">13:00</div>
+                                <div class="available-time">14:00</div>
+                                <div class="unavailable-time">15:00</div>
+                                <div class="available-time">16:00</div>
+                                <div class="available-time">17:00</div>
+                            </div>
+                            <div class="service-timebox">
+                                <div class="available-time">8:00</div>
+                                <div class="available-time">9:00</div>
+                                <div class="available-time">10:00</div>
+                                <div class="unavailable-time">11:00</div>
+                                <div class="available-time">12:00</div>
+                                <div class="unavailable-time">13:00</div>
+                                <div class="selected-time">14:00</div>
+                                <div class="available-time">15:00</div>
+                                <div class="available-time">16:00</div>
+                                <div class="unavailable-time">17:00</div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
