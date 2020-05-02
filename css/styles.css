@@ -106,7 +106,7 @@ h2{
   background-color: #f2f2f2;
 }
 
-h2{
+.page-section h2{
   text-align: center;
   font-family: inherit;
   font-weight: 900;
@@ -115,7 +115,7 @@ h2{
 }
 
 .h-bg-white{
-  color: #2c3e50;
+  color: #2c3e50 !important;
 }
 
 #logo{
@@ -198,7 +198,7 @@ footer{
 
 .login-title{
   font-size: 30px;
-  color: #2c3e50;
+  color: #2c3e50 !important;
   text-align: center;
   width: 100%;
   display: block;
@@ -206,7 +206,7 @@ footer{
 
 
 
-h3{
+.page-section h3{
   font-size: 20px;
   color: #f2f2f2;
   text-align: center;
@@ -228,7 +228,7 @@ h3{
 }
 
 .action-item {
-  color: #dbdbdb;
+  color: #dbdbdb !important;
   padding: 30px;
   border-bottom: 1px solid #dbdbdb;
   white-space: nowrap;
@@ -236,6 +236,14 @@ h3{
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+}
+
+.action-item a:visited {
+  color: #dbdbdb;
+}
+
+.action-item a {
+  color: #dbdbdb;
 }
 
 .action-item:hover {
@@ -251,37 +259,157 @@ h3{
   margin-right: 10px;
 }
 
-.services-products-register {
-  align-items: center;
-  margin-left: 30%;
-  margin-right: 30%;
-  width:40%;
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-  margin-top: 10%;
-}
-
-.button-adm-reg {
-  display: inline-block;
-  width: 49%;
-  background-color: #4CAF50;
-  color: white;
-  padding:14px 0 14px 0;
-  margin: 8px 0px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  background-color: #45a049;
-  text-align: center;
-}
-
-.input-large-text {
-  width: 100%;
-  padding: 12px 20px 80px;
-  margin: 8px 0;
-  display: inline-block;
+.vertical-line {
   border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+  height: 100%;
+}
+
+.container-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.container-pick-date {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: black;
+  padding:20px;
+}
+
+.container-pick-time {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+.calendar-bar {
+  background-color: #239888;
+  color: #dbdbdb;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.calendar-bar-button {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.calendar-box {
+  display: grid;
+  grid-template-rows: 2fr 3fr 3fr 3fr 3fr 3fr 3fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.weekday-box {
+  padding:5px;
+  background-color: #ddd;
+  text-align:center;
+}
+
+.date-box {
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selected-date {
+  border-radius: 50%; 
+  background-color:#239888;
+  padding: 8px;
+  color: #dbdbdb;
+}
+
+.past-date {
+  color: #dbdbdb;
+}
+
+.unselected-date:hover {
+  border-radius: 50%;
+  background-color: #dbdbdb;
+  padding:8px;
+  cursor: pointer;
+}
+
+.container-times {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.service-labels-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-label {
+  flex: 1;
+  padding: 10px;
+  background-color: #239888;
+  color: #dbdbdb;
+}
+
+.service-times-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-timebox {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.available-time {
+  background-color: #90ef90;
+  padding: 10px;
+}
+
+.unavailable-time {
+  padding: 10px;
+  background-color: #FF9478;
+}
+
+.selected-time {
+  background-color: #007000;
+  padding: 10px;
+  color: #dbdbdb;
+}
+
+.pets-container {
+  display: flex;
+  padding: 30px;
+}
+
+.animal-container {
+  width: 200px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-right: 20px;
+}
+
+.animal-img {
+  width: 100%;
+  height: 30%;
+}
+
+.animal-img img {
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+}
+
+.animal-content h3 {
+  text-align: center;
+  color: #239888;
 }
