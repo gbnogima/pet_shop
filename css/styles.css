@@ -413,3 +413,84 @@ footer{
   text-align: center;
   color: #239888;
 }
+
+.stock-container{
+  height: 100%;
+  margin: 50px;
+}
+#stock {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#stock td, #stock th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#stock tr:nth-child(even){background-color: #f2f2f2;}
+
+#stock tr:hover {background-color: #ddd;}
+
+#stock th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color:#4CAF50;
+  color: white;
+}
+
+.btn-stock{
+  border: none;
+  
+  padding: 10px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.edit-button {
+  background-color: transparent;
+  border: none;
+  color: #2c3e50;
+  
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.remove-button {
+  background-color:#f44336;
+  color: white;
+  float: right;
+  
+}
+.save-button {
+  background-color:#2c3e50;
+  color: white;
+  float: left;
+  
+}
+.new-product-button {
+  background-color:#4CAF50;
+  color: white;
+  float: left;
+  
+}
+#btnwrap{
+  width: 100%;
+  text-align: center;
+}
+.w30{
+  width:30%;
+}
