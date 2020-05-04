@@ -24,7 +24,7 @@
         <div class="container flex-row">
             <div class="action-bar">
                 <a href="adm_user_register.html">
-                    <div class="action-item">
+                    <div class="action-item action-item-selected">
                         <i class="fa fa-user-plus"></i>
                         <p>Registrar Cliente</p>
                     </div>
@@ -38,7 +38,13 @@
                 <a href="adm_add_products.html">
                     <div class="action-item">
                         <i class="fa fa-cart-plus"></i>
-                        <p>Adicionar produtos e<br> serviços</p>
+                        <p>Adicionar produtos</p>
+                    </div>
+                </a>
+                <a href="adm_add_services.html">
+                    <div class="action-item">
+                        <i class="fa fa-cart-plus"></i>
+                        <p>Adicionar serviços</p>
                     </div>
                 </a>
                 <a href="adm_manage_schedules.html">
@@ -61,9 +67,9 @@
                         <h2 class="login-title">Cadastrar Cliente</h2>
                         <input class="input-text" id="fname" name="firstname" placeholder="Nome">
                         <input class="input-text" id="lname" name="lastname" placeholder="Sobrenome">
-                        <input class="input-text" id="cpf" name="cpf" placeholder="CPF">
+                        <input class="input-text" style="width: 49.6%;" id="cpf" name="cpf" placeholder="CPF">
+                        <input class="input-text" style="width: 49.6%" id="phone" name="phoneNumber" placeholder="Telefone">
                         <input class="input-text" id="addres" name="addres" placeholder="Endereço">
-                        <input class="input-text" id="phone" name="phoneNumber" placeholder="Telefone">
                         <input class="input-text" id="email" name="email" placeholder="Email">
                         <input class="btn-submit" value="Cadastrar">
                     </form>
