@@ -582,6 +582,7 @@ footer{
   background-size: .65em auto, 100%;
 }
 
+
 .product-container{
   height: 100%;
   margin: 50px;
@@ -600,4 +601,9 @@ footer{
   height: 100%;
   margin-top: 10px;
   object-fit:cover;
+
+.confirm-agend {
+  margin-top: 50px;
+  font-size: 16px;
+
 }
