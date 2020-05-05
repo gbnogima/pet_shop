@@ -547,6 +547,13 @@ footer{
   box-sizing: border-box;
 }
 
+.profile-container{
+  height: 350px;
+  margin: 50px;
+  padding: 20px;
+  background-color: #ddd;
+  border-radius: 25px;
+}
 .form-group {
   display: flex;
   flex-direction: row;
