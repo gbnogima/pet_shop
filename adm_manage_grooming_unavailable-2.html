@@ -38,11 +38,17 @@
                 <a href="adm_add_products.html">
                     <div class="action-item">
                         <i class="fa fa-cart-plus"></i>
-                        <p>Adicionar produtos e<br> serviços</p>
+                        <p>Adicionar produtos</p>
+                    </div>
+                </a>
+                <a href="adm_add_services.html">
+                    <div class="action-item">
+                        <i class="fa fa-cart-plus"></i>
+                        <p>Adicionar serviços</p>
                     </div>
                 </a>
                 <a href="adm_manage_schedules.html">
-                    <div class="action-item">
+                    <div class="action-item action-item-selected"">
                         <i class="fa fa-calendar-check-o"></i>
                         <p>Gerenciar agendamentos</p>
                     </div>
@@ -57,17 +63,34 @@
             <div class="container">
                 <!-- TODO: Adicionar conteúdo aqui -->
                 <div class="login-container" style="margin-top: 5%;">
-                    <form action="/action_page.php">
-                        <h2 class="login-title">Cadastrar Serviço</h2>
-                        <input class="input-text" id="sname" name="serviceName" placeholder="Título do Serviço">
-                        
-                        <!-- Adicionar quebra de linha na descrição -->
-                        <input class="input-large-text" id="sdesc" name="serviceDescription" placeholder="Descrição do Serviço">
-
-                        
-                        <input class="btn-submit" value="Cadastrar">
-                    </form>
-                  </div>
+                    <h2 class="login-title">Horário já reservado!</h2>
+                    <div class="container-pick-time">
+                        <h2>Horários disponíveis: </h2>
+                        <div class="container-times">
+                            <div class="service-labels-container">
+                                <div class="service-label">
+                                    Banho & Tosa
+                                </div>
+                            </div>
+                            <div class="service-times-container">
+                                <div class="service-timebox">
+                                    <a href="schedule_complete.html" style="color: inherit;"> <div class="selected-time">8:00</div></a>
+                                    <a href="schedule_complete.html" style="color: inherit;"> <div class="available-time">9:00</div></a>
+                                    <a href="schedule_complete.html" style="color: inherit;"> <div class="available-time">10:00</div></a>
+                                    <div class="unavailable-time">11:00</div>
+                                    <a href="schedule_complete.html" style="color: inherit;"> <div class="available-time">12:00</div></a>
+                                    <div class="unavailable-time">13:00</div>
+                                    <div class="available-time">14:00</div>
+                                    <a href="schedule_complete.html" style="color: inherit;"> <div class="available-time">15:00</div></a>
+                                    <a href="schedule_complete.html" style="color: inherit;"> <div class="available-time">16:00</div></a>
+                                    <div class="unavailable-time">17:00</div>
+    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input class="button-adm-reg" style="margin-left: 51%;" value="Cancelar Agendamento">
+                </div>
             </div>
         </div>
     </body>

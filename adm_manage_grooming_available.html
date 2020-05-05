@@ -38,11 +38,17 @@
                 <a href="adm_add_products.html">
                     <div class="action-item">
                         <i class="fa fa-cart-plus"></i>
-                        <p>Adicionar produtos e<br> serviços</p>
+                        <p>Adicionar produtos</p>
+                    </div>
+                </a>
+                <a href="adm_add_services.html">
+                    <div class="action-item">
+                        <i class="fa fa-cart-plus"></i>
+                        <p>Adicionar serviços</p>
                     </div>
                 </a>
                 <a href="adm_manage_schedules.html">
-                    <div class="action-item">
+                    <div class="action-item action-item-selected">
                         <i class="fa fa-calendar-check-o"></i>
                         <p>Gerenciar agendamentos</p>
                     </div>
@@ -58,14 +64,12 @@
                 <!-- TODO: Adicionar conteúdo aqui -->
                 <div class="login-container" style="margin-top: 5%;">
                     <form action="/action_page.php">
-                        <h2 class="login-title">Cadastrar Produto</h2>
-                        <input class="input-text" id="sname" name="serviceName" placeholder="Título do Produto">
-                        
-                        <!-- Adicionar quebra de linha na descrição -->
-                        <input class="input-large-text" id="sdesc" name="serviceDescription" placeholder="Descrição do Produto">
-                        <input class="btn-submit" value="Cadastrar">
+                        <h2 class="login-title">Horário Disponível</h2>
+                        <input class="input-text" id="fullName" name="fullName" placeholder="Nome do Cliente">
+                        <input class="input-text" id="pname" name="petName" placeholder="Nome do Pet">
+                        <input class="button-adm-reg" style="margin-left: 51%;" value="Agendar">
                     </form>
-                  </div>
+                </div>
             </div>
         </div>
     </body>

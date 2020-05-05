@@ -42,7 +42,7 @@
                     </div>
                 </a>
                 <a href="adm_add_services.html">
-                    <div class="action-item">
+                    <div class="action-item action-item-selected">
                         <i class="fa fa-cart-plus"></i>
                         <p>Adicionar serviços</p>
                     </div>
@@ -62,6 +62,18 @@
             </div>
             <div class="container">
                 <!-- TODO: Adicionar conteúdo aqui -->
+                <div class="login-container" style="margin-top: 5%;">
+                    <form action="/action_page.php">
+                        <h2 class="login-title">Cadastrar Serviço</h2>
+                        <input class="input-text" id="sname" name="serviceName" placeholder="Título do Serviço">
+                        <input class="input-text" id="sname" name="serviceName" placeholder="Preço do Serviço">
+                        
+                        <!-- Adicionar quebra de linha na descrição -->
+                        <input class="input-large-text" id="sdesc" name="serviceDescription" placeholder="Descrição do Serviço">
+                        
+                        <input class="btn-submit" value="Cadastrar">
+                    </form>
+                  </div>
             </div>
         </div>
     </body>
