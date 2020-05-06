@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Pet Shop</title>
+        <link href="css/styles.css" rel="stylesheet" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Icon -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <nav class="nav-bar">
+            <div class="container">
+                <a class="navbar-brand" href="client.html">PET SHOP</a>
+                <div class="nav-menu">
+                    <ul>
+                        <li class="nav-li"><a class="nav-li-a" href="index.html">LOGOUT</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container flex-row">
+            <div class="action-bar">
+                <div class="action-item">
+                    <i class="fa fa-calendar"></i>
+                    <a href="schedule-service.html"><p>Agendar serviço</p></a>
+                </div>
+                <div class="action-item">
+                    <i class="fa fa-shopping-cart"></i>
+                    <p>Comprar produtos</p>
+                </div>
+                <div class="action-item">
+                    <i class="fa fa-paw"></i>
+                    <a href="animals.html"><p>Meus pets</p></a>
+                </div>
+                <div class="action-item">
+                    <i class="fa fa-paw"></i>
+                    <a href="add-new-pet.html"><p>Adicionar novo pet</p></a>
+                </div>
+                <div class="action-item">
+                    <i class="fa fa-user"></i>
+                    <a href="client_profile.html"><p>Minha conta</p></a>
+                </div>
+            </div>
+            <div class="container">
+                <!-- TODO: Adicionar conteúdo aqui -->
+                <div class="dog-info-container">
+                    <div class="dog-basic-info-container">
+                        <div>
+                            <p><strong>Nome: </strong>Bob</p>
+                            <p><strong>Tipo: </strong>Cachorro</p>
+                            <p><strong>Raça: </strong>Labrador</p>
+                            <p><strong>Peso: </strong>8kg</p>
+                            <p><strong>Idade: </strong>7 anos</p>
+                        </div>
+                        <div class="pet-show-img">
+                            <img src="assets/img/dog.jpg">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="dog-schedule-container">
+                        <table id="stock">
+                            <tr>
+                                <th>Serviço</th>
+                                <th>Preço</th>
+                                <th>Data</th>
+                                <th>Horário</th>
+                            </tr>
+                            <tr>
+                                <td>Banho & Tosa</td>
+                                <td>R$ 80,00 </td>
+                                <td>10/05/2020</td>
+                                <td>15:00</td>
+                            </tr>
+                            <tr>
+                                <td>Vacinação</td>
+                                <td>R$ 120,00 </td>
+                                <td>12/05/2020</td>
+                                <td>17:00</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <h3 class="pet-show-subtotal">Total: R$ 200,00</h3>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
