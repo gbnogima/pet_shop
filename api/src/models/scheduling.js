@@ -29,16 +29,19 @@ const schema = new Schema({
         default: 'created'
     },
     items: [{
-        quantity: {
-            type: Number,
-            required: true,
-            default: 1
+        date: {
+            type: Date,
+            required: false
         },
-        productId: {
+        petId: {
+            type: String,
+            required: true
+        },
+        serviceId: {
             type: String,
             required: true
         },
     }],
 });
 
-module.exports = mongoose.model('Order', schema);
+module.exports = mongoose.model('Scheduling', schema);

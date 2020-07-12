@@ -5,7 +5,7 @@
 
 'use strict';
 
-const repository = require('../repositories/order');
+const repository = require('../repositories/scheduling');
 const guid = require('guid');
 
 exports.get = async(req, res, next) => {
@@ -27,7 +27,7 @@ exports.post = async(req, res, next) => {
             items: req.body.items
         });
         res.status(201).send({
-            message: 'Pedido cadastrado'
+            message: 'Agendamento cadastrado'
         });
     } catch (e) {
         console.log(e);

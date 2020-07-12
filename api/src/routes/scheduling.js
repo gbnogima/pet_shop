@@ -7,12 +7,9 @@
 
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/product');
+const controller = require('../controllers/scheduling');
 
 router.get('/', controller.get);
-router.get('/id/:id', controller.getById);
 router.post('/', controller.post);
-router.delete('/', controller.delete);
-router.put('/:id', controller.put);
 
 module.exports = router;
