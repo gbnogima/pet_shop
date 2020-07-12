@@ -5,11 +5,11 @@ function LoginView() {
     <div>
       <section class="page-section bg-white">
         <div class="login-container">
-          <form action="/action_page.php">
+          <form>
             <h2 class="login-title">LOGIN</h2>
-            <input class="input-text" id="fname" name="firstname" placeholder="Username"/>
-            <input class="input-text" id="lname" name="lastname" placeholder="Password"/>
-            <input class="btn-submit" value="Submit"/>
+            <input class="input-text" id="email" name="email" placeholder="E-mail"/>
+            <input class="input-text" id="password" type="password" name="password" placeholder="Senha"/>
+            <input class="btn-submit" value="Entrar"/>
           </form>
         </div>
       </section>
