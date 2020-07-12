@@ -46,7 +46,7 @@ class SignUpView extends React.Component {
               <h2 class="login-title">CADASTRO</h2>
               <input class="input-text" id="name" name="name" placeholder="Nome" onChange={this.handleChange}/>
               <input class="input-text" id="email" name="email" placeholder="E-mail" onChange={this.handleChange}/> 
-              <input class="input-text" id="password" type="password" placeholder="Senha" onChange={this.handleChange}/>
+              <input class="input-text" id="password" name="password" type="password" placeholder="Senha" onChange={this.handleChange}/>
               <input class="btn-submit" type="submit" value="Cadastrar"/>
             </form>
           </div>
