@@ -57,12 +57,9 @@ exports.getPartnerHours = async(req, res, next) => {
 exports.post = async(req, res, next) => {
     try {
         await repository.create({
-            title: req.body.title,
-            slug: req.body.slug,
+            name: req.body.name,
             description: req.body.description,
-            partner: req.body.partner,
-            price: req.body.price,
-            hours: req.body.hours
+            price: req.body.price
         });
         res.status(201).send({
             message: 'Serviço cadastrado'

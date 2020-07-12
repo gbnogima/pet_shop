@@ -21,6 +21,8 @@ const Product = require('./models/product');
 const Service = require('./models/service');
 const Order = require('./models/order');
 const User = require('./models/user');
+const Pet = require('./models/pet');
+const Scheduling = require('./models/scheduling');
 
 // Routes
 const indexRoute = require('./routes/index');
@@ -28,6 +30,8 @@ const productRoute = require('./routes/product');
 const serviceRoute = require('./routes/service');
 const orderRoute = require('./routes/order');
 const userRoute = require('./routes/user');
+const petRoute = require('./routes/pet');
+const schedulingRoute = require('./routes/scheduling');
 
 
 app.use(bodyParser.json({
@@ -50,6 +54,8 @@ app.use('/products', productRoute);
 app.use('/services', serviceRoute);
 app.use('/orders', orderRoute);
 app.use('/users', userRoute);
+app.use('/pets', petRoute);
+app.use('/scheduling', schedulingRoute);
 
 
 module.exports = app;

@@ -6,38 +6,44 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const Product = mongoose.model('Product');
+const Pet = mongoose.model('Pet');
 
 exports.get = async() => {
-    const res = await Product.find({});
+    const res = await Pet.find({});
     return res;
 }
 
 exports.getById = async(id) => {
-    const res = await Product
+    const res = await Pet
         .findById(id);
     return res;
 }
 
+exports.getByCustomerId = async(customerId) => {
+    const res = await Pet
+        .find({
+            customerId: customerId
+        });
+    return res;
+}
+
 exports.create = async(data) => {
-    var product = new Product(data);
-    await product.save();
+    var pet = new Pet(data);
+    await pet.save();
 }
 
 exports.delete = async(id) => {
-    await Product
+    await Pet
         .findOneAndRemove(id);
 }
 
 exports.update = async(id, data) => {
-    await Product
+    await Pet
         .findByIdAndUpdate(id, {
             $set: {
                 name: req.body.name,
-                description: req.body.description,
-                price: req.body.price,
-                amount: req.body.amount,
-                sold: req.body.sold
+                race: req.body.race,
+                age: req.body.age
             }
         });
 }

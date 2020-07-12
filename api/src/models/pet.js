@@ -9,27 +9,22 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
+    customerId: {
+        type: String,
+        required: true
+    },
     name: {
         type: String,
-        required: true,
-        trim: true
+        required: true
     },
-    description: {
+    race: {
         type: String,
-        required: false
-    },
-    price: {
-        type: Number,
         required: true
     },
-    amount: {
-        type: Number,
-        required: true
-    },
-    sold: {
+    age: {
         type: Number,
         required: true
     }
 });
 
-module.exports = mongoose.model('Product', schema);
+module.exports = mongoose.model('Pet', schema);

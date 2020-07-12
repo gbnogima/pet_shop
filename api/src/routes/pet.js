@@ -7,10 +7,11 @@
 
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/product');
+const controller = require('../controllers/pet');
 
 router.get('/', controller.get);
 router.get('/id/:id', controller.getById);
+router.get('/customer-id/:id', controller.getByCustomerId);
 router.post('/', controller.post);
 router.delete('/', controller.delete);
 router.put('/:id', controller.put);
