@@ -19,6 +19,17 @@ exports.get = async(req, res, next) => {
     }
 }
 
+exports.getByCustomerId = async(req, res, next) => {
+    try {
+        var data = await repository.getByCustomerId(req.params.id);
+        res.status(200).send(data);
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar sua requisição'
+        });
+    }
+}
+
 exports.post = async(req, res, next) => {
     try {
         await repository.create({

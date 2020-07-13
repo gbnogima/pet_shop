@@ -13,6 +13,14 @@ exports.get = async(data) => {
     return res;
 }
 
+exports.getByCustomerId = async(customerId) => {
+    const res = await Order
+        .find({
+            customerId: customerId
+        });
+    return res;
+}
+
 exports.create = async(data) => {
     var order = new Order(data);
     await order.save();
