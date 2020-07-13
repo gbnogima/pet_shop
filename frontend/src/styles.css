@@ -230,6 +230,7 @@ footer{
   display: flex;
   flex-direction: row;
   height: 100%;
+  background-color: #f2f2f2;
 }
 
 .action-bar {
@@ -509,6 +510,7 @@ footer{
 }
 .w30{
   width:30%;
+  margin-right: 10px;
 }
 
 .float {
@@ -652,4 +654,13 @@ footer{
 
 .pet-show-subtotal {
   text-align: right;
+}
+
+.error {
+  border: 1px solid red;
+}
+
+.error-span{
+  color: red;
+  font-size: small;
 }
