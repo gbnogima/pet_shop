@@ -1,30 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { HomeView, ContactView, LoginView, SignUpView } from '../views';
-import { Header, Footer } from './';
+import { Header, Footer } from '../components';
 
-class RouterHandler extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { isAuthenticated: this.props.isAuthenticated };
-  }
-
-  setAuthenticated() {
-    this.setState({ isAuthenticated: true });
-  }
-
+class LandingPageApp extends React.Component {
   render() {
-    if (this.state.isAuthenticated) {
-      return (
-        <Router>
-          <Switch>
-            <Route path="/">
-              <h1>It works!</h1>
-            </Route>
-          </Switch>
-        </Router>
-      );
-    }
     return (
       <Router>
         <div>
@@ -34,7 +14,7 @@ class RouterHandler extends React.Component {
               <SignUpView />
             </Route>
             <Route path="/login">
-              <LoginView onLoginSuccess={this.setAuthenticated.bind(this)}/>
+              <LoginView onLoginSuccess={this.props.onAuth}/>
             </Route>
             <Route path="/contato">
               <ContactView />
@@ -50,4 +30,4 @@ class RouterHandler extends React.Component {
   }
 }
 
-export default RouterHandler;
+export default LandingPageApp;

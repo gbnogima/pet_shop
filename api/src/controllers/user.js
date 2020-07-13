@@ -70,7 +70,8 @@ exports.authenticate = async(req, res, next) => {
             token: token,
             data: {
                 email: user.email,
-                name: user.name
+                name: user.name,
+                role: user.role
             }
         });
     } catch (e) {
