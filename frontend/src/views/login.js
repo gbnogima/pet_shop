@@ -31,15 +31,14 @@ class LoginView extends React.Component {
 
     try {
       // TODO: URL is hardcoded for now, change that later
-      const response = await fetch("http://localhost:3001/users/authenticate", requestData)
+      let response = await fetch("http://localhost:3001/users/authenticate", requestData)
       if (!response.ok) {
         console.log("Credenciais invalidas");
         return;
       }
 
-      const data = await response.json();
-      localStorage.setItem("token", data.token);
-      this.props.onLoginSuccess();
+      response = await response.json();
+      this.props.onLoginSuccess(response.data, response.token);
     } catch (error) {
       console.log(error);
     }
