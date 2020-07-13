@@ -10,6 +10,7 @@ const router = express.Router();
 const controller = require('../controllers/scheduling');
 
 router.get('/', controller.get);
+router.get('/customer-id/:id', controller.getByCustomerId);
 router.post('/', controller.post);
 
 module.exports = router;
