@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 
 class LoginView extends React.Component {
   constructor(props) {
@@ -6,6 +7,7 @@ class LoginView extends React.Component {
     this.state = {
       email: '',
       password: '',
+      redirect: null,
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -24,19 +26,29 @@ class LoginView extends React.Component {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(this.state)
+      body: JSON.stringify({ email: this.state.email, password: this.state.password })
     }
 
     try {
       // TODO: URL is hardcoded for now, change that later
       const response = await fetch("http://localhost:3001/users/authenticate", requestData)
-      console.log(response);
+      if (!response.ok) {
+        console.log("Credenciais invalidas");
+        return;
+      }
+
+      const data = await response.json();
+      localStorage.setItem("token", data.token);
+      this.props.onLoginSuccess();
     } catch (error) {
       console.log(error);
     }
   }
   
   render() {
+    if (this.state.redirect) {
+      return <Redirect to={this.state.redirect}/>
+    }
     return (
       <div>
         <section class="page-section bg-white">
