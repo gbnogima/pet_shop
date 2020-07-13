@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function AdminSidebar() {
   return (
@@ -15,12 +16,12 @@ function AdminSidebar() {
           <p>Registrar Administrador</p>
         </div>
       </a>
-      <a>
+      <Link to="/gerenciar-produtos">
         <div className="action-item">
           <i className="fa fa-cart-plus"></i>
-          <p>Adicionar produtos</p>
+          <p>Gerenciar Produtos</p>
         </div>
-      </a>
+      </Link>
       <a>
         <div className="action-item">
           <i className="fa fa-cart-plus"></i>
@@ -31,12 +32,6 @@ function AdminSidebar() {
         <div className="action-item">
           <i className="fa fa-calendar-check-o"></i>
           <p>Gerenciar agendamentos</p>
-        </div>
-      </a>
-      <a>
-        <div className="action-item">
-          <i className="fa fa-refresh"></i>
-          <p>Atualizar estoque</p>
         </div>
       </a>
     </div>
