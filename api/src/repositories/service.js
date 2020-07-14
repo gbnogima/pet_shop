@@ -13,26 +13,9 @@ exports.get = async() => {
     return res;
 }
 
-exports.getBySlug = async(slug) => {
-    const res = await Service
-        .findOne({
-            slug: slug
-        }, 'title description price slug');
-    return res;
-}
-
 exports.getById = async(id) => {
     const res = await Service
         .findById(id, 'title description price slug');
-    return res;
-}
-
-exports.getPartnerHours = async(data) => {
-    const res = await Service
-        .find({
-            hours: { $in: data.hours },
-            partner: { "$regex": data.partner, "$options": "i" }
-        }, 'title partner');
     return res;
 }
 
@@ -45,10 +28,9 @@ exports.update = async(id, data) => {
     await Service
         .findByIdAndUpdate(id, {
             $set: {
-                title: data.title,
+                name: data.name,
                 description: data.description,
-                price: data.price,
-                slug: data.slug
+                price: data.price
             }
         });
 }

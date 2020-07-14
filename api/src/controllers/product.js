@@ -29,6 +29,18 @@ exports.getById = async(req, res, next) => {
     }
 }
 
+exports.getByName = async(req, res, next) => {
+    try {
+        var data = await repository.getByName(req.body.search);
+        res.status(200).send(data);
+    } catch (e) {
+        console.log(e);
+        res.status(500).send({
+            message: 'Falha ao processar sua requisição'
+        });
+    }
+}
+
 exports.post = async(req, res, next) => {
     try {
         await repository.create({
@@ -64,11 +76,14 @@ exports.delete = async(req, res, next) => {
 
 exports.put = async(req, res, next) => {
     try {
+        console.log(req.body);
+        console.log(req.params.id);
         await repository.update(req.params.id, req.body);
         res.status(200).send({
             message: 'Produto atualizado com sucesso!'
         });
     } catch (e) {
+        console.log(e);
         res.status(500).send({
             message: 'Falha ao processar sua requisição'
         });
