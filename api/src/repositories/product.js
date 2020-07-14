@@ -19,6 +19,14 @@ exports.getById = async(id) => {
     return res;
 }
 
+exports.getByName = async(search) => {
+    const res = await Product
+        .find({
+            name: { "$regex": search, "$options": "i" }
+        });
+    return res;
+}
+
 exports.create = async(data) => {
     var product = new Product(data);
     await product.save();
@@ -33,11 +41,11 @@ exports.update = async(id, data) => {
     await Product
         .findByIdAndUpdate(id, {
             $set: {
-                name: req.body.name,
-                description: req.body.description,
-                price: req.body.price,
-                amount: req.body.amount,
-                sold: req.body.sold
+                name: data.name,
+                description: data.description,
+                price: data.price,
+                amount: data.amount,
+                sold: data.sold
             }
         });
 }

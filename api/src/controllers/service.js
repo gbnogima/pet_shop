@@ -18,17 +18,6 @@ exports.get = async(req, res, next) => {
     }
 }
 
-exports.getBySlug = async(req, res, next) => {
-    try {
-        var data = await repository.getBySlug(req.params.slug);
-        res.status(200).send(data);
-    } catch (e) {
-        res.status(500).send({
-            message: 'Falha ao processar requisição'
-        });
-    }
-}
-
 exports.getById = async(req, res, next) => {
     try {
         var data = await repository.getById(req.params.id);
@@ -40,16 +29,14 @@ exports.getById = async(req, res, next) => {
     }
 }
 
-exports.getPartnerHours = async(req, res, next) => {
+exports.getByName = async(req, res, next) => {
     try {
-        var data = await repository.getPartnerHours({
-            partner: req.body.partner,
-            hours: req.body.hours
-        });
+        var data = await repository.getByName(req.body.search);
         res.status(200).send(data);
     } catch (e) {
+        console.log(e);
         res.status(500).send({
-            message: 'Falha ao processar requisição'
+            message: 'Falha ao processar sua requisição'
         });
     }
 }

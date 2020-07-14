@@ -1,18 +1,20 @@
 import React from 'react';
 
-class CreateProductView extends React.Component {
+
+class EditProductView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: "",
-            description: "",
-            price: "",
-            amount: "",
-            sold: "",
+            name: this.props.item["name"],
+            description: this.props.item["description"],
+            price: this.props.item["price"],
+            amount: this.props.item["amount"],
+            sold: this.props.item["sold"],
             error: false
         }
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleUpdate = this.handleUpdate.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     validate() {  
@@ -29,12 +31,37 @@ class CreateProductView extends React.Component {
         this.setState({[event.target.name]: event.target.value});
     }
 
-    async handleSubmit(event) {
+    async handleDelete(event){
+        event.preventDefault();
+        if(!this.state.error){
+            const requestData = {
+                method: 'DELETE',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({id: this.props.item["_id"]})
+            }
+
+            try {
+                console.log(this.props);
+                const response = await fetch("http://localhost:3001/products/", requestData)
+                if(response.status === 200) alert("Produto removido com sucesso!");
+                else alert("Erro ao remover produto");
+                console.log(response);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+    }
+
+    async handleUpdate(event) {
         event.preventDefault();
         await this.validate();
         if(!this.state.error){
             const requestData = {
-                method: 'POST',
+                method: 'PUT',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
@@ -48,8 +75,9 @@ class CreateProductView extends React.Component {
             }
 
             try {
-                const response = await fetch("http://localhost:3001/products", requestData)
-                if(response.status === 201) alert("Produto cadastrado com sucesso!");
+                console.log(this.props);
+                const response = await fetch("http://localhost:3001/products/" + this.props.item["_id"], requestData)
+                if(response.status === 200) alert("Produto atualizado com sucesso!");
                 else alert("Erro ao cadastrar produto");
                 console.log(response);
             } catch (error) {
@@ -60,20 +88,23 @@ class CreateProductView extends React.Component {
 
     render() {
         return (
-            <div>
-                <section className="page-section bg-white">
-                    <form onSubmit={this.handleSubmit}> 
+            <tr>
+                <td colSpan="5">
+                    <p>Editar Produto</p>
+                    <form onSubmit={this.handleUpdate}> 
                         {this.state.error ? <span className="error-span">Todos os campos devem ser preenchidos.</span> : ""}
                         <input 
                             className="input-text"
                             name="name" 
-                            placeholder="Nome" 
+                            placeholder="Nome"
+                            value={this.state.name} 
                             onChange={this.handleChange}
                         />
                         <input 
                             className="input-text"
                             name="description" 
                             placeholder="Descrição" 
+                            value={this.state.description} 
                             onChange={this.handleChange}
                         />
                         <input 
@@ -82,6 +113,7 @@ class CreateProductView extends React.Component {
                             placeholder="Preço" 
                             type="number" 
                             min="0" 
+                            value={this.state.price} 
                             onChange={this.handleChange}
                         />
                         <input 
@@ -90,6 +122,7 @@ class CreateProductView extends React.Component {
                             placeholder="Quantidade" 
                             type="number" 
                             min="0"
+                            value={this.state.amount} 
                             onChange={this.handleChange}
                         />
                         <input 
@@ -98,14 +131,17 @@ class CreateProductView extends React.Component {
                             placeholder="Quantidade Vendida" 
                             type="number" 
                             min="0"
+                            value={this.state.sold} 
                             onChange={this.handleChange}
                         /><br/>
-                        <button className="btn-stock save-button" type="submit">Adicionar Produto</button>
+                        <button className="btn-stock save-button" type="submit">Salvar alterações</button>
+                        
                     </form>
-                </section>
-            </div>
+                    <button className="btn-stock remove-button" onClick={this.handleDelete}>Remover produto</button>
+                </td>
+            </tr>
         )
     }
 }
 
-export default CreateProductView;
+export default EditProductView;

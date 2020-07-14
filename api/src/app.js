@@ -15,6 +15,10 @@ const router = express.Router();
 
 // Conexão com o mongodb local
 mongoose.connect('mongodb://127.0.0.1:27017/api', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
 
 // Models
 const Product = require('./models/product');

@@ -11,6 +11,7 @@ const controller = require('../controllers/product');
 
 router.get('/', controller.get);
 router.get('/id/:id', controller.getById);
+router.post('/name', controller.getByName);
 router.post('/', controller.post);
 router.delete('/', controller.delete);
 router.put('/:id', controller.put);
