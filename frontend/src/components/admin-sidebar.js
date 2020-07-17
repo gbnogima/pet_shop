@@ -4,18 +4,12 @@ import { Link } from 'react-router-dom';
 function AdminSidebar() {
   return (
     <div className="action-bar">
-      <a>
+      <Link to="/registrar-usuario">
         <div className="action-item">
           <i className="fa fa-user-plus"></i>
-          <p>Registrar Cliente</p>
+          <p>Registrar Usuário</p>
         </div>
-      </a>
-      <a>
-        <div className="action-item">
-          <i className="fa fa-user-plus"></i>
-          <p>Registrar Administrador</p>
-        </div>
-      </a>
+      </Link>
       <Link to="/gerenciar-produtos">
         <div className="action-item">
           <i className="fa fa-cart-plus"></i>
