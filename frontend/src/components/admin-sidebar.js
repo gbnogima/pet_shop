@@ -16,12 +16,12 @@ function AdminSidebar() {
           <p>Gerenciar Produtos</p>
         </div>
       </Link>
-      <a>
+      <Link to="/gerenciar-servicos">
         <div className="action-item">
           <i className="fa fa-cart-plus"></i>
-          <p>Adicionar serviços</p>
+          <p>Gerenciar serviços</p>
         </div>
-      </a>
+      </Link>
       <a>
         <div className="action-item">
           <i className="fa fa-calendar-check-o"></i>
