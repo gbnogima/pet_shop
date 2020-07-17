@@ -6,3 +6,6 @@ export { default as CreateProductView } from './create-product';
 export { default as ListProductsView } from './list-products';
 export { default as EditProductView } from './edit-product';
 export { default as RegisterUserView } from './register-user';
+export { default as CreateServiceView } from './create-service';
+export { default as ListServicesView } from './list-services';
+export { default as EditServiceView } from './edit-service';

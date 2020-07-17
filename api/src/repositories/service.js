@@ -19,6 +19,14 @@ exports.getById = async(id) => {
     return res;
 }
 
+exports.getByName = async(search) => {
+    const res = await Service
+        .find({
+            name: { "$regex": search, "$options": "i" }
+        });
+    return res;
+}
+
 exports.create = async(data) => {
     var service = new Service(data);
     await service.save();
