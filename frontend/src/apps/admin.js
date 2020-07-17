@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { DashboardHeader, AdminSidebar} from '../components';
-import {AdminProductApp} from '../apps'
+import { AdminProductApp } from '../apps'
+import { RegisterUserView } from '../views';
 
 class AdminApp extends React.Component {
   render() {
@@ -12,8 +13,8 @@ class AdminApp extends React.Component {
           <AdminSidebar/>
           <div className="container">
             <Switch>
-              <Route path="/a">
-                <h1>It works!</h1>
+              <Route path="/registrar-usuario">
+                <RegisterUserView/>
               </Route>
               <Route path="/gerenciar-produtos">
                 <AdminProductApp/>

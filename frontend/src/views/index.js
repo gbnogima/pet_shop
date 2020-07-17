@@ -5,3 +5,4 @@ export { default as SignUpView } from './sign-up';
 export { default as CreateProductView } from './create-product';
 export { default as ListProductsView } from './list-products';
 export { default as EditProductView } from './edit-product';
+export { default as RegisterUserView } from './register-user';
