@@ -10,7 +10,8 @@ const router = express.Router();
 const controller = require('../controllers/order');
 
 router.get('/', controller.get);
-router.get('/customer-id/:id', controller.getByCustomerId);
+router.put('/id/:id', controller.updateStatus);
+router.get('/customer-id/', controller.getByCustomerId);
 router.post('/', controller.post);
 
 module.exports = router;

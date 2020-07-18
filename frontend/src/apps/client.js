@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { DashboardHeader, ClientSidebar } from '../components';
+import { ClientProductApp} from '../apps'
 
 class ClientApp extends React.Component {
   render() {
@@ -11,8 +12,11 @@ class ClientApp extends React.Component {
           <ClientSidebar/>
           <div className="container">
             <Switch>
-              <Route path="/">
+              <Route path="/a">
                 <h1>It works!</h1>
+              </Route>
+              <Route path="/comprar-produtos">
+                <ClientProductApp/>
               </Route>
             </Switch>
           </div>
