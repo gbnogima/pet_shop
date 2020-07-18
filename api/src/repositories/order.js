@@ -16,7 +16,8 @@ exports.get = async(data) => {
 exports.getByCustomerId = async(customerId) => {
     const res = await Order
         .find({
-            customerId: customerId
+            customerId: customerId,
+            status: 'created'
         });
     return res;
 }
@@ -24,4 +25,22 @@ exports.getByCustomerId = async(customerId) => {
 exports.create = async(data) => {
     var order = new Order(data);
     await order.save();
+}
+
+exports.update = async(id, items) => {
+    await Order
+        .findByIdAndUpdate(id, {
+            $set: {
+                items: items
+            }
+        });
+}
+
+exports.updateStatus = async(id) => {
+    await Order
+        .findByIdAndUpdate(id, {
+            $set: {
+                status: 'done'
+            }
+        });
 }

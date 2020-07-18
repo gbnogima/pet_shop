@@ -34,11 +34,11 @@ const schema = new Schema({
             required: true,
             default: 1
         },
-        productId: {
-            type: String,
-            required: true
-        },
-    }],
+        product: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Product'
+        }
+    }]
 });
 
 module.exports = mongoose.model('Order', schema);
