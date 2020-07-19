@@ -33,6 +33,12 @@ h2{
   text-decoration: none;
 }
 
+.floating-button {
+  position: fixed !important;
+  right: 50px;
+  bottom: 50px;
+}
+
 .nav-bar{
   font-weight: 700;
   display: flex;

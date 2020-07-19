@@ -14,10 +14,12 @@ function Sidebar() {
                 <p>Comprar Produtos</p>
             </div>
         </Link>
-        <div className="action-item">
-            <i className="fa fa-paw"></i>
-            <a><p>Meus pets</p></a>
-        </div>
+        <Link to="/meus-pets">
+          <div className="action-item">
+              <i className="fa fa-paw"></i>
+              <p>Meus pets</p>
+          </div>
+        </Link>
         <div className="action-item">
             <i className="fa fa-paw"></i>
             <a><p>Adicionar novo pet</p></a>

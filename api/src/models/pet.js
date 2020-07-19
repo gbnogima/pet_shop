@@ -24,6 +24,17 @@ const schema = new Schema({
     age: {
         type: Number,
         required: true
+    },
+    img: {
+        type: String,
+    },
+    breed: {
+        type: String,
+        required: true,
+    },
+    weight: {
+        type: String,
+        required: true,
     }
 });
 
