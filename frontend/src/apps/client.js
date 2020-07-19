@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { DashboardHeader, ClientSidebar } from '../components';
-import { ClientProductApp} from '../apps'
+import { ClientProductApp, ClientPetsApp } from '../apps'
 
 class ClientApp extends React.Component {
   render() {
@@ -17,6 +17,9 @@ class ClientApp extends React.Component {
               </Route>
               <Route path="/comprar-produtos">
                 <ClientProductApp/>
+              </Route>
+              <Route path="/meus-pets">
+                <ClientPetsApp user={this.props.user}/>
               </Route>
             </Switch>
           </div>
