@@ -16,16 +16,17 @@ class ClientProductApp extends React.Component {
   }
   render() {
     return (
-      <Router>
-            <div className='stock-container'>
-                <h2>Compras</h2>
-                    <button className="btn-stock new-product-button" onClick={this.handleClick}>
-                        Ver Carrinho
-                    </button>
-                    {this.state.isCreateOn && <CartView/>}
-                    <BuyProductView/>
-                </div>
-      </Router>
+      <div>
+        <div className='stock-container'>
+            <h2>Compras</h2>
+            <button className="btn-stock new-product-button" onClick={this.handleClick}>
+                Ver Carrinho
+            </button>
+            {this.state.isCreateOn && <CartView/>} 
+        </div>
+        <br/><br/>
+        <BuyProductView user={this.props.user}/>
+      </div>
     );
   }
 }

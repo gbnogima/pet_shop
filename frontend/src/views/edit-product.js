@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 class EditProductView extends React.Component {
     constructor(props) {
         super(props);
@@ -71,7 +70,8 @@ class EditProductView extends React.Component {
                     description: this.state.description,
                     price: this.state.price,
                     amount: this.state.amount,
-                    sold: this.state.sold})
+                    sold: this.state.sold
+                })
             }
 
             try {

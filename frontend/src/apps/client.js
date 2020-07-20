@@ -16,7 +16,7 @@ class ClientApp extends React.Component {
                 <h1>It works!</h1>
               </Route>
               <Route path="/comprar-produtos">
-                <ClientProductApp/>
+                <ClientProductApp user={this.props.user}/>
               </Route>
               <Route path="/meus-pets">
                 <ClientPetsApp user={this.props.user}/>

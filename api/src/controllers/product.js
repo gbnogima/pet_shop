@@ -5,12 +5,18 @@
 
 'use strict';
 
+const utils = require('../utils');
+
 const repository = require('../repositories/product');
 
 exports.get = async(req, res, next) => {
     try {
         var data = await repository.get();
-        res.status(200).send(data);
+        const responseData = data.map((product) => { 
+          product.img = utils.getImage(product.img);
+          return product;
+        });
+        res.status(200).send(responseData);
     } catch (e) {
         res.status(500).send({
             message: 'Falha ao processar sua requisição'
@@ -21,7 +27,7 @@ exports.get = async(req, res, next) => {
 exports.getById = async(req, res, next) => {
     try {
         var data = await repository.getById(req.params.id);
-        console.log(data);
+        
         res.status(200).send(data);
     } catch (e) {
         res.status(500).send({
@@ -33,7 +39,11 @@ exports.getById = async(req, res, next) => {
 exports.getByName = async(req, res, next) => {
     try {
         var data = await repository.getByName(req.body.search);
-        res.status(200).send(data);
+        const responseData = data.map((product) => { 
+          product.img = utils.getImage(product.img);
+          return product;
+        });
+        res.status(200).send(responseData);
     } catch (e) {
         console.log(e);
         res.status(500).send({
@@ -43,13 +53,15 @@ exports.getByName = async(req, res, next) => {
 }
 
 exports.post = async(req, res, next) => {
+    const imageId = utils.saveImage(req.body.img);
     try {
         await repository.create({
             name: req.body.name,
             description: req.body.description,
             price: req.body.price,
             amount: req.body.amount,
-            sold: req.body.sold
+            sold: req.body.sold,
+            img: imageId
         });
         res.status(201).send({
             message: 'Produto cadastrado com sucesso!'
