@@ -1,4 +1,6 @@
 import React from 'react';
+import ImageUploader from 'react-images-upload';
+import toBase64 from '../utils';
 
 class CreateProductView extends React.Component {
     constructor(props) {
@@ -13,6 +15,7 @@ class CreateProductView extends React.Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.onDrop = this.onDrop.bind(this);
     }
 
     validate() {  
@@ -27,6 +30,17 @@ class CreateProductView extends React.Component {
 
     handleChange(event) {
         this.setState({[event.target.name]: event.target.value});
+    }
+
+    async onDrop(picture) {
+        console.log("picture: " + picture);
+        if(picture.length){
+            const base64 = await toBase64(picture[0]);
+            this.setState({
+                img: base64
+            });
+        }
+        
     }
 
     async handleSubmit(event) {
@@ -44,7 +58,9 @@ class CreateProductView extends React.Component {
                     description: this.state.description,
                     price: this.state.price,
                     amount: this.state.amount,
-                    sold: this.state.sold})
+                    sold: this.state.sold,
+                    img: this.state.img
+                })
             }
 
             try {
@@ -64,6 +80,15 @@ class CreateProductView extends React.Component {
                 <section className="page-section bg-white">
                     <form onSubmit={this.handleSubmit}> 
                         {this.state.error ? <span className="error-span">Todos os campos devem ser preenchidos.</span> : ""}
+                        <ImageUploader
+                            withPreview={true}
+                            withLabel={false}
+                            buttonText='Escolher imagem'
+                            onChange={this.onDrop}
+                            singleImage={true}
+                            withIcon={false}
+                            fileContainerStyle={{margin: 0, padding: 0, background: "none", boxShadow: "none" }}
+                        />
                         <input 
                             className="input-text"
                             name="name" 
@@ -76,6 +101,7 @@ class CreateProductView extends React.Component {
                             placeholder="Descrição" 
                             onChange={this.handleChange}
                         />
+                        
                         <input 
                             className="input-text w30" 
                             name="price" 
@@ -100,6 +126,7 @@ class CreateProductView extends React.Component {
                             min="0"
                             onChange={this.handleChange}
                         /><br/>
+                        
                         <button className="btn-stock save-button" type="submit">Adicionar Produto</button>
                     </form>
                 </section>

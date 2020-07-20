@@ -29,6 +29,9 @@ const schema = new Schema({
     sold: {
         type: Number,
         required: true
+    },
+    img: {
+        type: String,
     }
 });
 
