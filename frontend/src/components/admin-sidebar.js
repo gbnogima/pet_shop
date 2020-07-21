@@ -28,6 +28,12 @@ function AdminSidebar() {
           <p>Gerenciar agendamentos</p>
         </div>
       </a>
+      <Link to="/minha-conta">
+        <div className="action-item">
+            <i className="fa fa-user"></i>
+            <a><p>Minha conta</p></a>
+        </div>
+        </Link>
     </div>
   );
 }

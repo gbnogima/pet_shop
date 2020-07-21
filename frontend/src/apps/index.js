@@ -5,3 +5,5 @@ export { default as AdminProductApp } from './admin-product';
 export { default as AdminServiceApp } from './admin-service';
 export { default as ClientProductApp } from './client-product';
 export { default as ClientPetsApp } from './client-pets';
+export { default as ClientDetailsApp } from './client-details';
+export { default as AdminDetailsApp } from './admin-details';
