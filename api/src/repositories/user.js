@@ -30,3 +30,20 @@ exports.getById = async(id) => {
     const res = await User.findById(id);
     return res;
 }
+
+exports.update = async(id, data) => {
+    await User
+        .findByIdAndUpdate(id, {
+            $set: {
+                name: data.name,
+                email: data.email,
+                phone: data.phone,
+                address: data.address
+            }
+        });
+}
+
+exports.delete = async(id) => {
+    await User
+        .findOneAndRemove(id);
+}
