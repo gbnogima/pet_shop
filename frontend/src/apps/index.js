@@ -7,3 +7,4 @@ export { default as ClientProductApp } from './client-product';
 export { default as ClientPetsApp } from './client-pets';
 export { default as ClientDetailsApp } from './client-details';
 export { default as AdminDetailsApp } from './admin-details';
+export { default as ClientSchedulingsApp } from './client-schedulings';

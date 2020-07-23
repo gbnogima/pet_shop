@@ -7,6 +7,9 @@
 
 const mongoose = require('mongoose');
 const Scheduling = mongoose.model('Scheduling');
+const endOfDay = require('date-fns/endOfDay');
+const startOfDay = require('date-fns/startOfDay')
+
 
 exports.get = async(data) => {
     var res = await Scheduling.find({})
@@ -14,11 +17,24 @@ exports.get = async(data) => {
 }
 
 exports.getByCustomerId = async(customerId) => {
-    const res = await Scheduling
+    let res = await Scheduling
         .find({
-            customerId: customerId
-        });
+            customer: new mongoose.Types.ObjectId(customerId)
+        }).populate('pet').populate('service').exec();
     return res;
+}
+
+exports.getByServiceAndDate = async(serviceId, date) => {
+  console.log(serviceId);
+  let res = await Scheduling
+      .find({
+        service: new mongoose.Types.ObjectId(serviceId),
+        date: {
+          $gte: startOfDay(date),
+          $lte: endOfDay(date)
+        }
+      });
+  return res;
 }
 
 exports.create = async(data) => {

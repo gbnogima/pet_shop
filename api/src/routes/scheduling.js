@@ -11,6 +11,7 @@ const controller = require('../controllers/scheduling');
 
 router.get('/', controller.get);
 router.get('/customer-id/:id', controller.getByCustomerId);
+router.get('/service/:serviceId', controller.getAvailableSlots);
 router.post('/', controller.post);
 
 module.exports = router;
