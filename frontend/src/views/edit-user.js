@@ -62,7 +62,7 @@ class EditUserView extends React.Component {
             <tr>
                 <td colSpan="5">
                     <p style={{marginLeft: "1%", color: "#239888"}}>Editar Cadastro</p>
-                    <form onSubmit={this.handleUpdate} style={{width: "98%", marginLeft: "1%"}}>
+                    <form onSubmit={this.handleUpdate} style={{marginLeft: "1%"}}>
                         {this.state.error ? <span className="error-span">Todos os campos devem ser preenchidos.</span> : ""}
                         <input class="input-text" id="name" name="name" placeholder="Nome" onChange={this.handleChange}/>
                         <input class="input-text" id="email" name="email" placeholder="E-mail" onChange={this.handleChange}/> 

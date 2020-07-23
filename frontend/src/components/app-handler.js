@@ -28,7 +28,7 @@ class AppHandler extends React.Component {
     const user = this.state.user;
     if (user) {
       if (user.role == "admin") {
-        return <AdminApp onLogout={this.handleLogout.bind(this)} />
+        return <AdminApp user = {user} onLogout={this.handleLogout.bind(this)} />
       } else if (user.role == "customer") {
         return <ClientApp user={user} onLogout={this.handleLogout.bind(this)} />
       }

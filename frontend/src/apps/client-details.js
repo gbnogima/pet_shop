@@ -7,7 +7,6 @@ import React from 'react';
 import { Fab, Grid } from '@material-ui/core';
 import { EditUserView } from '../views';
 import AddIcon from '@material-ui/icons/Add';
-import ImageUploader from 'react-images-upload';
 import toBase64 from '../utils';
 import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
 
@@ -29,7 +28,6 @@ const UserCard = ({name, email, phone, address}) => {
 }
 
 const UserGrid = ({users}) => {
-  console.log(users);
   const usersList = users.map((user) => 
     <UserCard name={user.name} email={user.email} phone={user.phone} address={user.address}/>
   );
@@ -70,7 +68,6 @@ class ClientDetailsApp extends React.Component {
 
     this.handleEditClick = this.handleEditClick.bind(this);
     this.handleFabClick = this.handleFabClick.bind(this);
-    this.onSuccessfulCreation = this.onSuccessfulCreation.bind(this);
     this.refreshUsers = this.refreshUsers.bind(this);
   }
 
@@ -83,19 +80,12 @@ class ClientDetailsApp extends React.Component {
       let response = await fetch(`http://localhost:3001/users/id/${this.props.user.id}`)
       response = await response.json()
       this.setState({users: response});
-      console.log(response);
     } catch (error) {
-      console.log(error);
       alert("Não foi possível carregar o usuário");
     }
   }
 
   componentDidMount() {
-    this.refreshUsers();
-  }
-
-  onSuccessfulCreation() {
-    this.setState({ creating: false });
     this.refreshUsers();
   }
 
@@ -115,9 +105,6 @@ class ClientDetailsApp extends React.Component {
     }
     
     const {users} = this.state;
-    if (this.state.creating) {
-      return <ClientNewUserView userId={this.props.user.id} handleSuccessfulCreation={this.onSuccessfulCreation}/>
-    }
 
     return (
       <div style={{display: "flex", height: "100%", flexDirection: "column", justifyContent: "space-between"}}>
@@ -134,7 +121,7 @@ class ClientDetailsApp extends React.Component {
                     <ul>
                         <li>Endereço: {users.address}</li>
                     </ul>
-                    <button className="btn-stock new-product-button" onClick={this.handleEditClick} style={{marginLeft: "75%"}}>
+                    <button className="btn-stock new-product-button" onClick={this.handleEditClick} style={{marginLeft: "1%"}}>
                       Editar Cadastro
                     </button>
                 </div>

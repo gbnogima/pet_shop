@@ -5,7 +5,7 @@
 
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import {BuyProductView, CartView } from '../views';
+import { BuyProductView, CartView } from '../views';
 
 class ClientProductApp extends React.Component {
   constructor(props) {

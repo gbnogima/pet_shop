@@ -27,7 +27,7 @@ function AdminSidebar() {
           <p>Gerenciar serviços</p>
         </div>
       </Link>
-      <Link to="/minha-conta">
+      <Link to="/conta-adm">
         <div className="action-item">
             <i className="fa fa-user"></i>
             <a><p>Minha conta</p></a>
