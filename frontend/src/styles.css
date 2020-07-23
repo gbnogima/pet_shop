@@ -425,25 +425,25 @@ footer{
 }
 
 .user-container {
-  width: 60%;
+  width: 52%;
   height: 24%;
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-right: 20%;
   margin-left: 10%;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 .user-container-expand {
-  width: 60%;
+  width: 52%;
   height: 59%;
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-right: 20%;
   margin-left: 10%;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 .user-container a {

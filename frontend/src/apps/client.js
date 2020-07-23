@@ -17,9 +17,6 @@ class ClientApp extends React.Component {
           <ClientSidebar/>
           <div className="container">
             <Switch>
-              <Route path="/a">
-                <h1>It works!</h1>
-              </Route>
               <Route path="/comprar-produtos">
                 <ClientProductApp user={this.props.user}/>
               </Route>

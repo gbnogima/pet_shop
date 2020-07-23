@@ -5,18 +5,15 @@
 
 import React from 'react';
 import { Fab, Grid } from '@material-ui/core';
+import { EditUserView } from '../views';
 import AddIcon from '@material-ui/icons/Add';
-import ImageUploader from 'react-images-upload';
 import toBase64 from '../utils';
 import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
 
-const UserCard = ({name, email, phone, img, address}) => {
+const UserCard = ({name, email, phone, address}) => {
   return (
     <div class="animal-container">
       <a>
-        <div class="animal-img">
-          <img src={"data:image/jpeg;base64,"+img}/>
-        </div>
         <div class="animal-content">
           <h3>{name}</h3> 
           <ul>
@@ -31,9 +28,8 @@ const UserCard = ({name, email, phone, img, address}) => {
 }
 
 const UserGrid = ({users}) => {
-  console.log(users);
   const usersList = users.map((user) => 
-    <UserCard name={user.name} email={user.email} phone={user.phone} img={user.img} address={user.address}/>
+    <UserCard name={user.name} email={user.email} phone={user.phone} address={user.address}/>
   );
 
   return (
@@ -52,39 +48,26 @@ class ClientNewUserView extends React.Component {
       name: '',
       email: '',
       phone: '',
-      address: '',
-      img: ''
+      address: ''
     }
-
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onDrop = this.onDrop.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({[event.target.name]: event.target.value});
-    console.log(this.state.img);
-  }
-
-  async onDrop(picture) {
-    const base64 = await toBase64(picture[0]);
-    this.setState({
-        img: base64
-    });
-  }
+  };
 
 }
 
-class AdminDetailsApp extends React.Component {
+class ClientDetailsApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       users: [],
-      creating: false
+      creating: false,
+      isCreateOn : false
     };
 
+    this.handleEditClick = this.handleEditClick.bind(this);
     this.handleFabClick = this.handleFabClick.bind(this);
-    this.onSuccessfulCreation = this.onSuccessfulCreation.bind(this);
     this.refreshUsers = this.refreshUsers.bind(this);
   }
 
@@ -97,9 +80,7 @@ class AdminDetailsApp extends React.Component {
       let response = await fetch(`http://localhost:3001/users/id/${this.props.user.id}`)
       response = await response.json()
       this.setState({users: response});
-      console.log(response);
     } catch (error) {
-      console.log(error);
       alert("Não foi possível carregar o usuário");
     }
   }
@@ -108,20 +89,26 @@ class AdminDetailsApp extends React.Component {
     this.refreshUsers();
   }
 
-  onSuccessfulCreation() {
-    this.setState({ creating: false });
-    this.refreshUsers();
+  handleEditClick() {
+    this.setState(state => ({
+      isEditOn: !state.isEditOn
+    }));
   }
 
   render() {
-    const {users} = this.state;
-    if (this.state.creating) {
-      return <ClientNewUserView userId={this.props.user.id} handleSuccessfulCreation={this.onSuccessfulCreation}/>
+    let className;
+    if (this.state.isEditOn){
+      className = 'user-container-expand'
     }
+    else{
+      className = 'user-container';
+    }
+    
+    const {users} = this.state;
 
     return (
       <div style={{display: "flex", height: "100%", flexDirection: "column", justifyContent: "space-between"}}>
-        <div class="user-container">
+        <div class={className}>
             <a>
                 <div class="user-content">
                     <h3>{users.name}</h3> 
@@ -134,12 +121,18 @@ class AdminDetailsApp extends React.Component {
                     <ul>
                         <li>Endereço: {users.address}</li>
                     </ul>
+                    <button className="btn-stock new-product-button" onClick={this.handleEditClick} style={{marginLeft: "1%"}}>
+                      Editar Cadastro
+                    </button>
                 </div>
             </a>
+              {this.state.isEditOn && <EditUserView item={users}/>}
          </div>
+         
       </div>
+      
     )
   }
 }
 
-export default AdminDetailsApp;
+export default ClientDetailsApp;

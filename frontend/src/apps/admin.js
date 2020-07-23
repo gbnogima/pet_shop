@@ -27,7 +27,7 @@ class AdminApp extends React.Component {
               <Route path="/gerenciar-servicos">
                 <AdminServiceApp/>
               </Route>
-              <Route path="/minha-conta">
+              <Route path="/conta-adm">
                 <AdminDetailsApp user={this.props.user}/>
               </Route>
             </Switch>
