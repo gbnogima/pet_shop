@@ -11,3 +11,4 @@ export { default as ListServicesView } from './list-services';
 export { default as EditServiceView } from './edit-service';
 export { default as BuyProductView } from './buy-product';
 export { default as CartView } from './cart';
+export { default as EditUserView } from './edit-user';
