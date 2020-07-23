@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 const Service = mongoose.model('Service');
 
 exports.get = async() => {
-    const res = await Service.find({}, 'title price slug');
+    const res = await Service.find({});
     return res;
 }
 

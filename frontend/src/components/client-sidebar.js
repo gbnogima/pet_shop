@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 function Sidebar() {
   return (
     <div className="action-bar">
-        <div className="action-item">
-            <i className="fa fa-calendar"></i>
-            <a><p>Agendar serviço</p></a>
-        </div>
+        <Link to="/agendar-servico">
+          <div className="action-item">
+              <i className="fa fa-calendar"></i>
+              <a><p>Agendar serviço</p></a>
+          </div>
+        </Link>
         <Link to="/comprar-produtos">
             <div className="action-item">
                 <i className="fa fa-cart-plus"></i>
@@ -21,10 +23,10 @@ function Sidebar() {
           </div>
         </Link>
         <Link to="/minha-conta">
-        <div className="action-item">
-            <i className="fa fa-user"></i>
-            <a><p>Minha conta</p></a>
-        </div>
+          <div className="action-item">
+              <i className="fa fa-user"></i>
+              <a><p>Minha conta</p></a>
+          </div>
         </Link>
     </div>
   );

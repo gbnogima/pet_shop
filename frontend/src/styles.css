@@ -33,6 +33,10 @@ h2{
   text-decoration: none;
 }
 
+.my-schedulings-wrapper {
+  padding: 20px;
+}
+
 .floating-button {
   position: fixed !important;
   right: 50px;

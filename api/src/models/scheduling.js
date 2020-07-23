@@ -9,12 +9,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
-    customerId: {
-        type: String,
-        required: true
-    },
-    number: {
-        type: String,
+    customer: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
         required: true
     },
     createDate: {
@@ -28,20 +25,20 @@ const schema = new Schema({
         enum: ['created', 'done'],
         default: 'created'
     },
-    items: [{
-        date: {
-            type: Date,
-            required: false
-        },
-        petId: {
-            type: String,
-            required: true
-        },
-        serviceId: {
-            type: String,
-            required: true
-        },
-    }],
+    date: {
+        type: Date,
+        required: false
+    },
+    pet: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Pet',
+        required: true
+    },
+    service: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Service',
+        required: true
+    },
 });
 
 module.exports = mongoose.model('Scheduling', schema);
