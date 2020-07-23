@@ -22,18 +22,12 @@ function AdminSidebar() {
           <p>Gerenciar serviços</p>
         </div>
       </Link>
-      <a>
-        <div className="action-item">
-          <i className="fa fa-calendar-check-o"></i>
-          <p>Gerenciar agendamentos</p>
-        </div>
-      </a>
       <Link to="/minha-conta">
         <div className="action-item">
             <i className="fa fa-user"></i>
             <a><p>Minha conta</p></a>
         </div>
-        </Link>
+      </Link>
     </div>
   );
 }
