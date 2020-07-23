@@ -1,3 +1,8 @@
+// Alunos:
+//     Alysson Rogerio Oliveira (9771355)
+//     Guilherme Brunassi Nogima (9771629)
+//     Leonardo Akel Daher (9771682)
+
 export { default as LandingPageApp } from './landing-page';
 export { default as ClientApp } from './client';
 export { default as AdminApp } from './admin';
