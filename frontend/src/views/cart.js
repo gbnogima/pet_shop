@@ -49,7 +49,6 @@ class CartView extends React.Component {
         try {
             let result = await fetch("http://localhost:3001/orders/customer-id/", requestData);
             result = await result.json();
-            console.log(result);
             if(result!=""){
                 this.setState({
                     rows: [],
@@ -59,7 +58,6 @@ class CartView extends React.Component {
                 for(let i in result[0].items){
                     let product = await fetch("http://localhost:3001/products/id/" + result[0].items[i].product);
                     product = await product.json();
-                    console.log(product);
                     this.setState({ 
                         rows: this.state.rows.concat(
                             <ListItem key={i} item={product}/>
@@ -77,6 +75,13 @@ class CartView extends React.Component {
         this.getProductList();
     }
 
+    componentWillReceiveProps(props) {
+        const { cartRefresh } = this.props;
+        if (props.cartRefresh !== cartRefresh) {
+            this.getProductList();
+        }
+      }
+
     async handleClick() {
         const requestData = {
             method: 'PUT',
@@ -89,9 +94,11 @@ class CartView extends React.Component {
                 
             })}
         try {
-            console.log(this.state.orderId);
-            let result = await fetch("http://localhost:3001/orders/id/" + this.state.orderId, requestData);
-            console.log(result);
+            await fetch("http://localhost:3001/orders/id/" + this.state.orderId, requestData);
+            this.setState({
+                rows: [],
+                orderId: ""
+            })
             
         } catch (e) {
             alert("Error: " + e);
