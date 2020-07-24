@@ -10,8 +10,9 @@ import { BuyProductView, CartView } from '../views';
 class ClientProductApp extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isCreateOn: false };
+    this.state = { isCreateOn: false, cartRefresh: false};
     this.handleClick = this.handleClick.bind(this);
+    this.onCartChange = this.onCartChange.bind(this);
   } 
 
   handleClick() {
@@ -19,6 +20,13 @@ class ClientProductApp extends React.Component {
       isCreateOn: !state.isCreateOn
     }));
   }
+
+  async onCartChange() {
+    this.setState(state => ({
+      cartRefresh: !state.cartRefresh
+    }));
+  }
+
   render() {
     return (
       <div>
@@ -27,10 +35,10 @@ class ClientProductApp extends React.Component {
             <button className="btn-stock new-product-button" onClick={this.handleClick}>
                 Ver Carrinho
             </button>
-            {this.state.isCreateOn && <CartView/>} 
+            {this.state.isCreateOn && <CartView cartRefresh={this.state.cartRefresh} onCartChange={this.onCartChange}/>} 
         </div>
-        <br/><br/>
-        <BuyProductView user={this.props.user}/>
+        <br/>
+        <BuyProductView user={this.props.user} onCartChange={this.onCartChange}/>
       </div>
     );
   }

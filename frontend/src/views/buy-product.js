@@ -6,8 +6,7 @@
 import React from 'react';
 import {Grid } from '@material-ui/core';
 
-const ProductCard = ({name, img, price, description, id}) => {
-
+const ProductCard = ({onCartChange, name, img, price, description, id}) => {
     const handleClick = async () => {
         const userToken = localStorage.getItem('token');
         const requestData = {
@@ -26,10 +25,9 @@ const ProductCard = ({name, img, price, description, id}) => {
             })}
         try {
             let result = await fetch("http://localhost:3001/orders/", requestData);
-            console.log(result);
-            
+            onCartChange();
         } catch (e) {
-            alert("Error: " + e);
+            alert("Error2: " + e);
         }
     }
 
@@ -54,10 +52,9 @@ const ProductCard = ({name, img, price, description, id}) => {
     );
 }
   
-const ProductGrid = ({products}) => {
-    console.log(products);
+const ProductGrid = ({products, onCartChange}) => {
     const productsList = products.map((product) => 
-        <ProductCard name={product.name} img={product.img} price={product.price} description={product.description} id={product._id}/>
+        <ProductCard onCartChange={onCartChange} name={product.name} img={product.img} price={product.price} description={product.description} id={product._id}/>
     );
 
     return (
@@ -120,7 +117,7 @@ class BuyProductView extends React.Component {
                 <button className="btn-stock" type="submit" onClick={this.handleSearch}>Buscar</button>
                 <div style={{display: "flex", height: "100%", flexDirection: "column", justifyContent: "space-between"}}>
                     {products.length > 0
-                        ? <ProductGrid products={this.state.products} />
+                        ? <ProductGrid products={this.state.products} onCartChange={this.props.onCartChange}/>
                         : <p>Nenhum produto encontrado.</p>
                     }
                 </div>
