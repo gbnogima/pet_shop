@@ -99,6 +99,7 @@ class CartView extends React.Component {
                 rows: [],
                 orderId: ""
             })
+            alert("Produto adquirido.");
             
         } catch (e) {
             alert("Error: " + e);
