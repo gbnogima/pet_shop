@@ -10,8 +10,9 @@ import { CreateProductView, ListProductsView } from '../views';
 class AdminProductApp extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isCreateOn: false };
+    this.state = { isCreateOn: false, stockRefresh: false };
     this.handleClick = this.handleClick.bind(this);
+    this.onStockChange = this.onStockChange.bind(this);
   } 
 
   handleClick() {
@@ -19,6 +20,13 @@ class AdminProductApp extends React.Component {
       isCreateOn: !state.isCreateOn
     }));
   }
+
+  onStockChange() {
+    this.setState(state => ({
+      stockRefresh: !state.stockRefresh
+    }));
+  }
+
   render() {
     return (
       <Router>
@@ -27,8 +35,8 @@ class AdminProductApp extends React.Component {
                 <button className="btn-stock new-product-button" onClick={this.handleClick}>
                   Novo Produto
                 </button>
-                {this.state.isCreateOn && <CreateProductView/>}
-                <ListProductsView/>
+                {this.state.isCreateOn && <CreateProductView onStockChange={this.onStockChange} handleClick={this.handleClick}/>}
+                <ListProductsView stockRefresh={this.state.stockRefresh} onStockChange={this.onStockChange}/>
             </div>
       </Router>
     );

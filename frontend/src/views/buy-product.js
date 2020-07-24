@@ -32,23 +32,23 @@ const ProductCard = ({onCartChange, name, img, price, description, id}) => {
     }
 
     return (
-      <div class="animal-container">
-        <a>
-          <div class="animal-img">
-            <img src={"data:image/jpeg;base64,"+img}/>
-          </div>
-          <div class="animal-content">
-            <h3>{name}</h3> 
-            <ul>
-                <li>Preço: R$ {price}</li>
-                <li>Descrição: {description}</li>
-            </ul>
-          </div>
-        </a>
-        <div id="btnwrap">
-            <button className="edit-button" ><i className="fa fa-cart-plus" onClick={handleClick}></i></button>
+        <div class="animal-container">
+            <a>
+            <div class="animal-img">
+                <img src={"data:image/jpeg;base64,"+img}/>
+            </div>
+            <div class="animal-content">
+                <h3>{name}</h3> 
+                <ul>
+                    <li>Preço: R$ {price}</li>
+                    <li>Descrição: {description}</li>
+                </ul>
+            </div>
+            </a>
+            <div className = "bottom" id="btnwrap">
+                <button className="edit-button" ><i className="fa fa-cart-plus" onClick={handleClick}></i></button>
+            </div>
         </div>
-      </div>
     );
 }
   
