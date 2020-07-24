@@ -10,12 +10,13 @@ import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 
 const SchedulingItem = ({scheduling}) => {
+  const date = new Date(scheduling.date)
   return (
     <tbody>
       <tr key = {scheduling._id}>
         <td>{scheduling.pet.name}</td>
         <td>{scheduling.service.name}</td>
-        <td>{scheduling.date}</td>
+        <td>{date.toLocaleString()}</td>
       </tr>
     </tbody>
   )
@@ -71,12 +72,12 @@ class ClientCreateSchedulingView extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
     this.updateAvailableSlots = this.updateAvailableSlots.bind(this);
+    this.handleSlotChange = this.handleSlotChange.bind(this);
   }
 
   async componentDidMount() {
     let response = await fetch("http://localhost:3001/services");
     const services = await response.json();
-    console.log(services);
     response = await fetch(`http://localhost:3001/pets/customer-id/${this.props.user.id}`);
     const pets = await response.json();
     this.setState({petsList: pets, servicesList: services});
@@ -84,26 +85,42 @@ class ClientCreateSchedulingView extends React.Component {
 
   async handleSubmit(event) {
     event.preventDefault();
+    console.log(this.state.date);
     const body = {
       petId: this.state.pet,
       serviceId: this.state.service,
       date: this.state.date,
       customerId: this.props.user.id,
     }
-    console.log(body);
-    let response = await fetch("http://localhost:3001/scheduling/", {
-      method: "POST",
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(body)
-    });
-    console.log(response);
+    try {
+      let response = await fetch("http://localhost:3001/scheduling/", {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(body)
+      });
+    } catch (error) {
+      alert("Houve um erro ao cadastrar o agendamento");
+      console.log(error);
+    }
+
+    alert("Agendamento realizado com sucesso");
+    this.props.onSuccess(); 
   }
 
   handleChange(event) {
     this.setState({[event.target.name]: event.target.value});
+  }
+
+  handleSlotChange(event) {
+    const slot = event.target.value;
+    const date = new Date(this.state.date);
+    date.setHours(slot);
+    date.setMinutes(0);
+    date.setSeconds(0);
+    this.setState({ slot: slot, date: date.toString() })
   }
 
   handleServiceChange(event) {
@@ -156,7 +173,7 @@ class ClientCreateSchedulingView extends React.Component {
                   value={this.state.date}
                   onChange={this.handleDateChange}
                   id="date-picker-dialog"
-                  label="Date picker dialog"
+                  label="Data"
                   format="MM/dd/yyyy"
                   KeyboardButtonProps={{
                     'aria-label': 'change date',
@@ -167,11 +184,11 @@ class ClientCreateSchedulingView extends React.Component {
                 <InputLabel htmlFor="age-native-helper">Horários disponíveis</InputLabel>
                 <NativeSelect
                   value={this.state.slot}
-                  onChange={this.handleChange}
+                  onChange={this.handleSlotChange}
                   name="slot"
                 >
                   <option aria-label="None" value="" />
-                  {this.state.slotsList.map((slot) => <option value={slot}>{slot}</option>)}
+                  {this.state.slotsList.map((slot) => <option value={slot}>{`${slot}h00`}</option>)}
                 </NativeSelect> 
               </FormControl>
               <br/>
@@ -192,23 +209,34 @@ class ClientSchedulingsApp extends React.Component {
     }
 
     this.handleFabClick = this.handleFabClick.bind(this);
+    this.disableCreating = this.disableCreating.bind(this);
+    this.updateSchedulings = this.updateSchedulings.bind(this);
   }
 
-  async componentDidMount() {
-    const response = await fetch(`http://localhost:3001/scheduling/customer-id/${this.props.user.id}`);
-    const schedulings = await response.json();
-    this.setState({schedulings: schedulings});
+  componentDidMount() {
+    this.updateSchedulings();
   }
 
   handleFabClick() {
     this.setState({ creating: true });
   }
 
+  disableCreating() {
+    console.log("it works");
+    this.setState({ creating: false });
+    this.updateSchedulings();
+  }
+
+  async updateSchedulings() {
+    const response = await fetch(`http://localhost:3001/scheduling/customer-id/${this.props.user.id}`);
+    const schedulings = await response.json();
+    this.setState({schedulings: schedulings});
+  }
+
   render() {
     const { schedulings } = this.state;
     if (this.state.creating) {
-      console.log(schedulings);
-      return <ClientCreateSchedulingView schedulings={schedulings} user={this.props.user}/>
+      return <ClientCreateSchedulingView onSuccess={this.disableCreating} schedulings={schedulings} user={this.props.user}/>
     }
 
     return (
