@@ -6,6 +6,7 @@
 'use strict';
 
 const mongoose = require('mongoose');
+const timeZone = require('mongoose-timezone');
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
@@ -41,4 +42,5 @@ const schema = new Schema({
     },
 });
 
+schema.plugin(timeZone, { paths: ['date'] });
 module.exports = mongoose.model('Scheduling', schema);
