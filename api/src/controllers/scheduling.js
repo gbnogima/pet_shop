@@ -33,11 +33,13 @@ exports.getByCustomerId = async(req, res, next) => {
 
 exports.getAvailableSlots = async(req, res, next) => {
   const currentDate = new Date(req.query.date);
+  console.log(currentDate);
   let availableSlots = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
   try {
     const data = await repository.getByServiceAndDate(req.params.serviceId, currentDate);
+    console.log(data);
     data.forEach((scheduling) => {
-      const index = availableSlots.indexOf(scheduling.date.getUTCHours());
+      const index = availableSlots.indexOf(scheduling.date.getHours());
       availableSlots.splice(index, 1);
     });
     res.status(200).send(availableSlots);
@@ -50,6 +52,7 @@ exports.getAvailableSlots = async(req, res, next) => {
 }
 
 exports.post = async(req, res, next) => {
+    console.log(req.body.date);
     try {
         await repository.create({
             customer: req.body.customerId,
