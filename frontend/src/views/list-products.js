@@ -33,7 +33,7 @@ class ListItem extends React.Component {
                         </div>
                     </td>
                 </tr>
-                {this.state.isCreateOn && <EditProductView item={this.props.item}/>}
+                {this.state.isCreateOn && <EditProductView item={this.props.item} onStockChange={this.props.onStockChange}/>}
             </tbody>
         );
     }
@@ -68,7 +68,7 @@ class ListProductView extends React.Component {
             for(let i in result){
                 this.setState({ 
                     rows: this.state.rows.concat(
-                        <ListItem key={i} item={result[i]}/>
+                        <ListItem key={i} item={result[i]} onStockChange={this.props.onStockChange}/>
                     )
                 })
             }
@@ -80,6 +80,13 @@ class ListProductView extends React.Component {
     async componentDidMount() {     
         this.getProductList();
     }
+
+    componentWillReceiveProps(props) {
+        const { stockRefresh } = this.props;
+        if (props.stockRefresh !== stockRefresh) {
+            this.getProductList();
+        }
+      }
 
     handleChange(event) {
         this.setState({[event.target.name]: event.target.value});

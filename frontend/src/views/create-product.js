@@ -16,6 +16,7 @@ class CreateProductView extends React.Component {
             price: "",
             amount: "",
             sold: "",
+            img:"",
             error: false
         }
         this.handleChange = this.handleChange.bind(this);
@@ -70,7 +71,11 @@ class CreateProductView extends React.Component {
 
             try {
                 const response = await fetch("http://localhost:3001/products", requestData)
-                if(response.status === 201) alert("Produto cadastrado com sucesso!");
+                if(response.status === 201){
+                    this.props.onStockChange();
+                    this.props.handleClick();
+                    alert("Produto cadastrado com sucesso!");    
+                } 
                 else alert("Erro ao cadastrar produto");
                 console.log(response);
             } catch (error) {

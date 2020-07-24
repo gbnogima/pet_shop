@@ -34,7 +34,7 @@ exports.create = async(data) => {
 
 exports.delete = async(id) => {
     await Product
-        .findOneAndRemove(id);
+        .findByIdAndRemove(id);
 }
 
 exports.update = async(id, data) => {
