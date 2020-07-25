@@ -12,7 +12,7 @@ function Sidebar() {
         <Link to="/agendar-servico">
           <div className="action-item">
               <i className="fa fa-calendar"></i>
-              <a><p>Agendar serviço</p></a>
+              <p>Agendar serviço</p>
           </div>
         </Link>
         <Link to="/comprar-produtos">
@@ -30,7 +30,7 @@ function Sidebar() {
         <Link to="/minha-conta">
           <div className="action-item">
               <i className="fa fa-user"></i>
-              <a><p>Minha conta</p></a>
+              <p>Minha conta</p>
           </div>
         </Link>
     </div>

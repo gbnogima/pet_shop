@@ -54,7 +54,7 @@ const ProductCard = ({onCartChange, name, img, price, description, id}) => {
   
 const ProductGrid = ({products, onCartChange}) => {
     const productsList = products.map((product) => 
-        <ProductCard onCartChange={onCartChange} name={product.name} img={product.img} price={product.price} description={product.description} id={product._id}/>
+        <ProductCard key={product._id} onCartChange={onCartChange} name={product.name} img={product.img} price={product.price} description={product.description} id={product._id}/>
     );
 
     return (

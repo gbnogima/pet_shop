@@ -30,7 +30,7 @@ function AdminSidebar() {
       <Link to="/conta-adm">
         <div className="action-item">
             <i className="fa fa-user"></i>
-            <a><p>Minha conta</p></a>
+            <p>Minha conta</p>
         </div>
       </Link>
     </div>
