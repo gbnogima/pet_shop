@@ -49,7 +49,7 @@ class CartView extends React.Component {
         try {
             let result = await fetch("http://localhost:3001/orders/customer-id/", requestData);
             result = await result.json();
-            if(result!==""){
+            if(result[0]){
                 this.setState({
                     rows: [],
                     orderId: result[0]._id
@@ -67,7 +67,7 @@ class CartView extends React.Component {
             }
             
         } catch (e) {
-            alert("Error1: " + e);
+            alert("Error3: " + e);
         }
     }
 
