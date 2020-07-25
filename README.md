@@ -33,3 +33,7 @@ cd frontend
 npm install
 npm start	
 ```
+
+Usuário padrão:
+Login: admin
+Senha: admin
