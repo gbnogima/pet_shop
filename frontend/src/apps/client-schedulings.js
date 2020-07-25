@@ -4,7 +4,7 @@
 //     Leonardo Akel Daher (9771682)
 
 import React from 'react';
-import { FormHelperText, FormControl, InputLabel, NativeSelect, Container, Fab } from '@material-ui/core';
+import { FormControl, InputLabel, NativeSelect, Container, Fab } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
@@ -42,7 +42,7 @@ class ClientListSchedulingsView extends React.Component {
 
   render() {
     const { schedulings } = this.props;
-    if (schedulings.length == 0) {
+    if (schedulings.length === 0) {
       return <p>Você não possui agendamentos</p>
     }
     return (
@@ -93,7 +93,7 @@ class ClientCreateSchedulingView extends React.Component {
       customerId: this.props.user.id,
     }
     try {
-      let response = await fetch("http://localhost:3001/scheduling/", {
+      await fetch("http://localhost:3001/scheduling/", {
         method: "POST",
         headers: {
           "Accept": "application/json",
