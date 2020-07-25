@@ -36,9 +36,11 @@ class SignUpView extends React.Component {
     }
 
     try {
-      await fetch("http://localhost:3001/users", requestData)
+      await fetch("http://localhost:3001/users", requestData);
+      alert("Usuário cadastrado com sucesso");
     } catch (error) {
       console.log(error);
+      alert("Erro ao cadastrar usuário");
     }
   }
 
