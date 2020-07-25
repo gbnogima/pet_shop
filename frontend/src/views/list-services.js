@@ -79,6 +79,13 @@ class ListProductView extends React.Component {
         this.getServiceList();
     }
 
+    componentWillReceiveProps(props) {
+        const { serviceRefresh } = this.props;
+        if (props.serviceRefresh !== serviceRefresh) {
+            this.getServiceList();
+        }
+    }
+
     handleChange(event) {
         this.setState({[event.target.name]: event.target.value});
     }

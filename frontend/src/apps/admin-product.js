@@ -30,14 +30,14 @@ class AdminProductApp extends React.Component {
   render() {
     return (
       <Router>
-            <div className='stock-container'>
-              <h2>Controle de estoque</h2>
-                <button className="btn-stock new-product-button" onClick={this.handleClick}>
-                  Novo Produto
-                </button>
-                {this.state.isCreateOn && <CreateProductView onStockChange={this.onStockChange} handleClick={this.handleClick}/>}
-                <ListProductsView stockRefresh={this.state.stockRefresh} onStockChange={this.onStockChange}/>
-            </div>
+        <div className='stock-container'>
+          <h2>Controle de estoque</h2>
+            <button className="btn-stock new-product-button" onClick={this.handleClick}>
+              Novo Produto
+            </button>
+            {this.state.isCreateOn && <CreateProductView onStockChange={this.onStockChange} handleClick={this.handleClick}/>}
+            <ListProductsView stockRefresh={this.state.stockRefresh} onStockChange={this.onStockChange}/>
+        </div>
       </Router>
     );
   }

@@ -10,8 +10,9 @@ import { CreateServiceView, ListServicesView } from '../views';
 class AdminServiceApp extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isCreateOn: false };
+    this.state = { isCreateOn: false, serviceRefresh: false };
     this.handleClick = this.handleClick.bind(this);
+    this.onServiceChange = this.onServiceChange.bind(this);
   } 
 
   handleClick() {
@@ -19,6 +20,13 @@ class AdminServiceApp extends React.Component {
       isCreateOn: !state.isCreateOn
     }));
   }
+
+  onServiceChange() {
+    this.setState(state => ({
+      serviceRefresh: !state.serviceRefresh
+    }));
+  }
+
   render() {
     return (
       <Router>
@@ -27,8 +35,8 @@ class AdminServiceApp extends React.Component {
           <button className="btn-stock new-product-button" onClick={this.handleClick}>
             Novo Serviço
           </button>
-          {this.state.isCreateOn && <CreateServiceView/>}
-          <ListServicesView/>
+          {this.state.isCreateOn && <CreateServiceView onServiceChange={this.onServiceChange} handleClick={this.handleClick}/>}
+          <ListServicesView serviceRefresh={this.state.serviceRefresh} onServiceChange={this.onServiceChange}/>
         </div>
       </Router>
     );

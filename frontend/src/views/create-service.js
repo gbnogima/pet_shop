@@ -30,6 +30,8 @@ class CreateServiceView extends React.Component {
         this.setState({[event.target.name]: event.target.value});
     }
 
+
+
     async handleSubmit(event) {
         event.preventDefault();
         await this.validate();
@@ -49,7 +51,11 @@ class CreateServiceView extends React.Component {
 
             try {
                 const response = await fetch("http://localhost:3001/services", requestData)
-                if(response.status === 201) alert("Serviço cadastrado com sucesso!");
+                if(response.status === 201){
+                    this.props.onServiceChange();
+                    this.props.handleClick();
+                    alert("Serviço cadastrado com sucesso!");
+                } 
                 else alert("Erro ao cadastrar serviço");
             } catch (error) {
                 console.log(error);
