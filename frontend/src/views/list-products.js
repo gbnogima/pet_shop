@@ -86,7 +86,7 @@ class ListProductView extends React.Component {
         if (props.stockRefresh !== stockRefresh) {
             this.getProductList();
         }
-      }
+    }
 
     handleChange(event) {
         this.setState({[event.target.name]: event.target.value});

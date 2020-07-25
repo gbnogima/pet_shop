@@ -80,7 +80,7 @@ class CartView extends React.Component {
         if (props.cartRefresh !== cartRefresh) {
             this.getProductList();
         }
-      }
+    }
 
     async handleClick() {
         const requestData = {
