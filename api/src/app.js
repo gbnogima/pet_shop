@@ -10,6 +10,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const config = require('./config');
+const md5 = require('md5');
 
 const app = express();
 const router = express.Router();
@@ -64,5 +65,21 @@ app.use('/users', userRoute);
 app.use('/pets', petRoute);
 app.use('/scheduling', schedulingRoute);
 
+(async () => {
+    try{
+        var user = new User({
+            name: 'admin',
+            email: 'admin',
+            password: md5('admin' + global.SALT_KEY),
+            phone: 'admin',
+            address: 'admin',
+            role: 'admin'
+        });
+        await user.save();
+        console.log('Admin criado.')
+    } catch(e){
+        console.log('Admin já existente.')
+  }
+})();
 
 module.exports = app;
