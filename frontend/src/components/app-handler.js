@@ -9,7 +9,7 @@ import { AdminApp, ClientApp, LandingPageApp } from '../apps';
 class AppHandler extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { user: this.props.auth };
+    this.state = { user: this.props.user };
   }
 
   handleAuth(user, token) {
@@ -20,6 +20,29 @@ class AppHandler extends React.Component {
   handleLogout() {
     this.setState({ user: undefined });
     localStorage.removeItem("token");
+  }
+
+  async componentDidMount(){
+    const userToken = localStorage.getItem('token');
+    if(this.state.user){
+      const requestData = {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'x-access-token': userToken
+        }
+      }
+      try{
+        let result = await fetch("http://localhost:3001/users/decode", requestData);
+        result = await result.json();
+        this.setState({ user: result });
+      }
+      catch(e){
+        alert(e);
+      }
+      
+    }
   }
 
   render() {
