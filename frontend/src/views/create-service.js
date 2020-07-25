@@ -51,7 +51,6 @@ class CreateServiceView extends React.Component {
                 const response = await fetch("http://localhost:3001/services", requestData)
                 if(response.status === 201) alert("Serviço cadastrado com sucesso!");
                 else alert("Erro ao cadastrar serviço");
-                console.log(response);
             } catch (error) {
                 console.log(error);
             }

@@ -31,7 +31,6 @@ const PetCard = ({name, race, age, img, breed, weight}) => {
 }
 
 const PetGrid = ({pets}) => {
-  console.log(pets);
   const petsList = pets.map((pet) => 
     <PetCard name={pet.name} race={pet.race} age={pet.age} img={pet.img} breed={pet.breed} weight={pet.weight}/>
   );
@@ -64,7 +63,6 @@ class ClientNewPetView extends React.Component {
 
   handleChange(event) {
     this.setState({[event.target.name]: event.target.value});
-    console.log(this.state.img);
   }
 
   async onDrop(picture) {
@@ -162,7 +160,6 @@ class ClientPetsApp extends React.Component {
       let response = await fetch(`http://localhost:3001/pets/customer-id/${this.props.user.id}`)
       response = await response.json()
       this.setState({pets: response});
-      console.log(response);
     } catch (error) {
       console.log(error);
       alert("Não foi possível carregar os pets");

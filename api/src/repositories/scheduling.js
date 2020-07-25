@@ -25,7 +25,6 @@ exports.getByCustomerId = async(customerId) => {
 }
 
 exports.getByServiceAndDate = async(serviceId, date) => {
-  console.log(serviceId);
   let res = await Scheduling
       .find({
         service: new mongoose.Types.ObjectId(serviceId),

@@ -39,7 +39,6 @@ class CreateProductView extends React.Component {
     }
 
     async onDrop(picture) {
-        console.log("picture: " + picture);
         if(picture.length){
             const base64 = await toBase64(picture[0]);
             this.setState({
@@ -77,7 +76,6 @@ class CreateProductView extends React.Component {
                     alert("Produto cadastrado com sucesso!");    
                 } 
                 else alert("Erro ao cadastrar produto");
-                console.log(response);
             } catch (error) {
                 console.log(error);
             }

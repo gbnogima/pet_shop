@@ -45,11 +45,9 @@ class EditProductView extends React.Component {
             }
 
             try {
-                console.log(this.props);
                 const response = await fetch("http://localhost:3001/services/", requestData)
                 if(response.status === 200) alert("Serviço removido com sucesso!");
                 else alert("Erro ao remover serviço");
-                console.log(response);
             } catch (error) {
                 console.log(error);
             }
@@ -74,11 +72,9 @@ class EditProductView extends React.Component {
             }
 
             try {
-                console.log(this.props);
                 const response = await fetch("http://localhost:3001/services/" + this.props.item["_id"], requestData)
                 if(response.status === 200) alert("Serviço atualizado com sucesso!");
                 else alert("Erro ao cadastrar serviço");
-                console.log(response);
             } catch (error) {
                 console.log(error);
             }

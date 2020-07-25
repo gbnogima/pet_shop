@@ -85,7 +85,6 @@ class ClientCreateSchedulingView extends React.Component {
 
   async handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state.date);
     const body = {
       petId: this.state.pet,
       serviceId: this.state.service,
@@ -222,7 +221,6 @@ class ClientSchedulingsApp extends React.Component {
   }
 
   disableCreating() {
-    console.log("it works");
     this.setState({ creating: false });
     this.updateSchedulings();
   }
