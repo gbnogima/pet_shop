@@ -31,6 +31,18 @@ exports.getById = async(req, res, next) => {
     }
 }
 
+exports.decodeToken  = async(req, res, next) => {
+    try {
+        const token = req.body.token || req.query.token || req.headers['x-access-token'];
+        const user = await authService.decodeToken(token);
+        res.status(200).send(user);
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar sua requisição'
+        });
+    }
+}
+
 exports.post = async(req, res, next) => {
     try {
         await repository.create({
@@ -93,6 +105,8 @@ exports.authenticate = async(req, res, next) => {
         });
     }
 };
+
+
 
 exports.put = async(req, res, next) => {
     try {
