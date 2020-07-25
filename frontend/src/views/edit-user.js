@@ -46,11 +46,9 @@ class EditUserView extends React.Component {
             }
 
             try {
-                console.log(this.props);
                 const response = await fetch("http://localhost:3001/users/" + this.props.item["_id"], requestData)
                 if(response.status === 200) alert("Cadastro atualizado com sucesso!");
                 else alert("Erro ao atualizar dados cadastrais");
-                console.log(response);
             } catch (error) {
                 console.log(error);
             }

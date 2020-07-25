@@ -38,7 +38,7 @@ class LoginView extends React.Component {
       // TODO: URL is hardcoded for now, change that later
       let response = await fetch("http://localhost:3001/users/authenticate", requestData)
       if (!response.ok) {
-        console.log("Credenciais invalidas");
+        alert("Credenciais invalidas");
         return;
       }
 

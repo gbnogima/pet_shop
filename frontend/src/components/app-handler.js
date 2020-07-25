@@ -13,13 +13,11 @@ class AppHandler extends React.Component {
   }
 
   handleAuth(user, token) {
-    console.log(user);
     localStorage.setItem("token", token);
     this.setState({ user: user });
   }
 
   handleLogout() {
-    console.log(this.state);
     this.setState({ user: undefined });
     localStorage.removeItem("token");
   }

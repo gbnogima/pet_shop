@@ -44,9 +44,7 @@ class RegisterUserView extends React.Component {
     }
 
     try {
-      // TODO: URL is hardcoded for now, change that later
-      const response = await fetch("http://localhost:3001/users", requestData)
-      console.log(response);
+      await fetch("http://localhost:3001/users", requestData)
     } catch (error) {
       console.log(error);
     }

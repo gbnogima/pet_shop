@@ -48,11 +48,9 @@ class EditProductView extends React.Component {
             }
 
             try {
-                console.log(this.props);
                 const response = await fetch("http://localhost:3001/products/", requestData)
                 if(response.status === 200) alert("Produto removido com sucesso!");
                 else alert("Erro ao remover produto");
-                console.log(response);
                 this.props.onStockChange();
             } catch (error) {
                 console.log(error);
@@ -81,14 +79,12 @@ class EditProductView extends React.Component {
             }
 
             try {
-                console.log(this.props);
                 const response = await fetch("http://localhost:3001/products/" + this.props.item["_id"], requestData)
                 if(response.status === 200){
                     this.props.onStockChange();
                     alert("Produto atualizado com sucesso!");
                 } 
                 else alert("Erro ao cadastrar produto");
-                console.log(response);
             } catch (error) {
                 console.log(error);
             }
