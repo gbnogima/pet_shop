@@ -24,7 +24,7 @@ const ProductCard = ({onCartChange, name, img, price, description, id}) => {
                 
             })}
         try {
-            let result = await fetch("http://localhost:3001/orders/", requestData);
+            await fetch("http://localhost:3001/orders/", requestData);
             onCartChange();
         } catch (e) {
             alert("Error2: " + e);

@@ -8,7 +8,6 @@ import { Fab, Grid } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import ImageUploader from 'react-images-upload';
 import toBase64 from '../utils';
-import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
 
 const PetCard = ({name, race, age, img, breed, weight}) => {
   return (
